@@ -1,31 +1,30 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import SearchBar from "./searchBar";
 
 const Home = () => {
-    const navigate = useNavigate();
-
-    // Function to handle search logic
-    const handleSearch = (searchTerm) => {
-        // Perform search logic here (if needed)
-        console.log("Search term:", searchTerm);
-    };
+    const recent = () => {
+        fetch('https://murraystatenews.org/wp-json/wp/v2/posts')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Do something with the fetched data
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+    }
 
     return(
         <div className="App">
-            <nav>
-                <button className="navButton">Home</button>
-                <button className="navButton" onClick={() => navigate('/news')}>News</button>
-                <button className="navButton" onClick={() => navigate('/settings')}>Settings</button>
-                <button className="navButton" onClick={() => navigate('/sports')}>Sports</button>
-                <button className="navButton" onClick={() => navigate('/help')}>Help</button>
-            </nav>
             <header className="App-header">
                 <h1>Murray State News</h1>
-                {/* Render the SearchBar component and pass handleSearch as a prop */}
-                <SearchBar onSearch={handleSearch} />
             </header>
             <main>
+                <button onClick={recent}>Fetch Data</button>
                 <section>
                     {/* News articles go here */}
                     <h2>Breaking News</h2>
@@ -40,5 +39,4 @@ const Home = () => {
         </div>
     );
 }
-
 export default Home;
