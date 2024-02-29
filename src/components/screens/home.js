@@ -1,5 +1,5 @@
 import React from "react";
-import Recent from "./Hooks/top10recent";
+import Recent from "../Hooks/top10/top10recent";
 
 const Home = () => {
 

@@ -1,4 +1,6 @@
-import {useState, useEffect} from "react";
+// Top10Recent.js
+import React, { useState, useEffect } from "react";
+import "./Top10Recent.css"; // Import the CSS file
 
 const Top10Recent = () => {
     const [articles, setArticles] = useState([]);
@@ -11,7 +13,6 @@ const Top10Recent = () => {
             return response.json();
         })
         .then(data => {
-            //console.log(data);          
             setArticles(data);
         })
         .catch(error => {
@@ -21,19 +22,11 @@ const Top10Recent = () => {
 
     return(
         articles.map((article, index) => {
-            const formatContent = () => {
-                /*bring content in here, instead of directly in the html below, 
-                then remove things lik <p> tags before displaying
-                
-                also remove things like '&#8217;', which is a character code for an apostrophe
-                (this is reffered to as an 'HTML Character Entity')*/ 
-            }
-
             return(
                 <div key={index} className="articleContainer">
-                    <h3>{article.title.rendered}</h3>
-                    <p>{article.excerpt.rendered}</p>
-                    <a href="">Read More</a> 
+                    <h3 className="articleHeading">{article.title.rendered}</h3>
+                    <p className="articleExcerpt">{article.excerpt.rendered}</p>
+                    <a className="articleLink" href="">Read More</a> 
                     <hr/>
                 </div>
             );

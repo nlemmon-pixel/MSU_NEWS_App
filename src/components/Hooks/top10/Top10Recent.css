@@ -1,0 +1,27 @@
+/* Top10Recent.css */
+.articleContainer {
+    border: 1px solid navy;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #f0f0f0; /* Light gray background */
+  }
+  
+  .articleHeading {
+    color: navy;
+    font-size: 1.5rem;
+  }
+  
+  .articleExcerpt {
+    color: #333; /* Dark gray */
+  }
+  
+  .articleLink {
+    color: blue;
+    text-decoration: none;
+  }
+  
+  .articleLink:hover {
+    text-decoration: underline;
+  }
+  
