@@ -1,9 +1,20 @@
-// SearchBar.js
 import React, { useState } from 'react';
-import './searchBar.css'; // Import the CSS file
-
+import axios from 'axios';
+b4
 const SearchBar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [error, setError] = useState(null);
+
+  const handleSearch = async (query) => {
+    try {
+      const response = await axios.get(`https://murraystatenews.org/wp-json/wp/v2/posts?search=${query}`);
+      setSearchResults(response.data);
+      onSearch(response.data); 
+    } catch (error) {
+      setError(error.message);
+    }
+  };
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
@@ -11,21 +22,24 @@ const SearchBar = ({ onSearch }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSearch(searchTerm);
+    handleSearch(searchTerm);
   };
 
   return (
-    <form className="search-bar-form" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <input
-        className="search-bar-input"
         type="text"
-        placeholder="Search..."
         value={searchTerm}
         onChange={handleChange}
+        placeholder="Search..."
       />
-      <button className="search-bar-button" type="submit">
-        Search
-      </button>
+      <button type="submit">Search</button>
+      {error && <p>Error: {error}</p>}
+      <ul>
+        {searchResults.map((post) => (
+          <li key={post.id}>{post.title.rendered}</li>
+        ))}
+      </ul>
     </form>
   );
 };
