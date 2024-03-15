@@ -28,4 +28,7 @@ README.md
 public/
 
 
-
+# capacitor
+capacitor.config.ts
+/ios
+/android

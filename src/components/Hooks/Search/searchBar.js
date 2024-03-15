@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-b4
+
 const SearchBar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);

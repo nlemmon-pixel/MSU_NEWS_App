@@ -5,7 +5,7 @@ const Top10Recent = () => {
     const [articles, setArticles] = useState([]);
 
     useEffect(() => {
-        fetch('https://murraystatenews.org/wp-json/wp/v2/posts?_embed')
+        fetch('https://murraystatenews.org/wp-json/wp/v2/posts?_embed&per_page=20')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
