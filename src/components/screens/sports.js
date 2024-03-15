@@ -6,7 +6,7 @@ const Sports = () => {
     useEffect(() => {
         const fetchArticles = async () => {
             try {
-                const response = await fetch("https://murraystatenews.org/wp-json/wp/v2/posts?category_name=athletics");
+                const response = await fetch("https://murraystatenews.org/wp-json/wp/v2/posts?category_name=athletics&_embed");
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -31,6 +31,12 @@ const Sports = () => {
                     {articles.map(article => (
                         <div key={article.id}>
                             <h3>{article.title.rendered}</h3>
+                            {article._embedded && article._embedded['wp:featuredmedia'] && (
+                                <img
+                                    src={article._embedded['wp:featuredmedia'][0].source_url}
+                                    alt={article._embedded['wp:featuredmedia'][0].alt_text}
+                                />
+                            )}
                             <p>{article.excerpt.rendered}</p>
                         </div>
                     ))}
