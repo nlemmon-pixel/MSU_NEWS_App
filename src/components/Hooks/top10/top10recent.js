@@ -5,7 +5,7 @@ import "./Top10Recent.css"; // Import the CSS file
 const Top10Recent = () => {
     const [articles, setArticles] = useState([]);
     const [selectedArticle, setSelectedArticle] = useState(null);
-
+    
     useEffect(() => {
         fetchArticles()
         .then(data => {
