@@ -7,6 +7,7 @@ const Top10Recent = () => {
     const [selectedArticle, setSelectedArticle] = useState(null);
     
     useEffect(() => {
+        fetchArticles()
         .then(data => {
             setArticles(data);
         })
