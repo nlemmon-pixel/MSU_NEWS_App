@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./Top10Recent.css"; // Import the CSS file
 
-const Top10Recent = () => {
+export const Top10Recent = (props) => {
     const [articles, setArticles] = useState([]);
 
     useEffect(() => {
-        fetch('https://murraystatenews.org/wp-json/wp/v2/posts?_embed&per_page=20')
+        fetch('https://murraystatenews.org/wp-json/wp/v2/posts?_embed&per_page=10')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -35,7 +35,7 @@ const Top10Recent = () => {
                     <hr/>
                 </div>
             );
-        })
+        }) 
     );
 }
 
