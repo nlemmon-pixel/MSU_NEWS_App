@@ -4,7 +4,7 @@ import Home from '../components/screens/home';
 import News from '../components/screens/news';
 import Help from '../components/screens/help';
 import Settings from '../components/screens/settings';
-import Sports from '../components/screens/sports';
+import Athletics from '../components/screens/athletics';
 import Footer from '../components/Hooks/Constants/footer';
 import Header from '../components/Hooks/Constants/header';
 import SplashScreen from '../components/screens/splash/splashScreen'; // Import the SplashScreen component
@@ -35,7 +35,7 @@ const App = () => {
                         <Route exact path="/help" element={<Help />} />
                         <Route exact path="/news" element={<News />} />
                         <Route exact path="/settings" element={<Settings />} />
-                        <Route exact path="/sports" element={<Sports />} />
+                        <Route exact path="/athletics" element={<Athletics />} />
                     </Routes>
                     <Footer />
                 </BrowserRouter>

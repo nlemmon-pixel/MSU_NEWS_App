@@ -10,7 +10,7 @@ const Footer = () => {
             <button className="navButton" onClick={() => navigate('/')}>Home</button>
             <button className="navButton" onClick={() => navigate('/news')}>News</button>
             <button className="navButton" onClick={() => navigate('/settings')}>Settings</button>
-            <button className="navButton" onClick={() => navigate('/sports')}>Sports</button>
+            <button className="navButton" onClick={() => navigate('/athletics')}>Athletics</button>
             <button className="navButton" onClick={() => navigate('/help')}>Help</button>
         </nav>
     );
