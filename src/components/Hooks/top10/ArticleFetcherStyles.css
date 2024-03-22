@@ -25,3 +25,7 @@
     text-decoration: underline;
   }
   
+  .articleImage {
+    max-width: 25%;
+    max-height: 25%;
+  }

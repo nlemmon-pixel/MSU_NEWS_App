@@ -1,6 +1,6 @@
 import React from "react";
 //import Recent from "../Hooks/top10/top10recent";
-import {Top10Recent} from "../Hooks/top10/top10recent";
+import {Top10Recent} from "../Hooks/top10/ArticleFetcher";
 
 const Home = () => {
 
