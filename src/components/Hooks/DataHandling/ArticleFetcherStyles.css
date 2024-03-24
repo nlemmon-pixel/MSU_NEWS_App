@@ -29,3 +29,9 @@
     max-width: 25%;
     max-height: 25%;
   }
+
+  .CategorySelectionButton {
+    margin-left:1%;
+    color:blue;
+    background-color: gold;
+  }

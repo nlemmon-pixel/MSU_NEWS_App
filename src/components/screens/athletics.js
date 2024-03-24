@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {Top10Sports} from "../Hooks/top10/ArticleFetcher"; 
+import {Top10Sports} from "../Hooks/DataHandling/ArticleFetcher"; 
 
 const Sports = () => {
 
