@@ -1,11 +1,15 @@
 /* Top10Recent.css */
 .articleContainer {
-    border: 1px solid navy;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 20px;
-    background-color: #f0f0f0; /* Light gray background */
-  }
+  border: 1px solid navy;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0; /* Light gray background */
+  max-width: 600px; /* Set a maximum width */
+  margin-left: auto; /* Center the container horizontally */
+  margin-right: auto; /* Center the container horizontally */
+}
+
   
   .articleHeading {
     color: navy;
@@ -24,14 +28,10 @@
   .articleLink:hover {
     text-decoration: underline;
   }
-  
-  .articleImage {
-    max-width: 25%;
-    max-height: 25%;
-  }
 
-  .CategorySelectionButton {
-    margin-left:1%;
-    color:blue;
-    background-color: gold;
-  }
+  .articleImage {
+    max-width: 100%; /* Ensure image doesn't exceed container width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+  

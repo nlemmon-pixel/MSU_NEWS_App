@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from '../components/screens/ThemeContext';
 import Home from '../components/screens/home';
 import News from '../components/screens/news';
 import Help from '../components/screens/help';
@@ -23,6 +24,7 @@ const App = () => {
     }, []); // Empty dependency array ensures this effect runs only once after initial render
 
     return (
+        <ThemeProvider> 
         <div id="page-container">
             {showSplash ? (
                 // Render the SplashScreen component if showSplash is true
@@ -41,6 +43,7 @@ const App = () => {
                 </BrowserRouter>
             )}
         </div>
+        </ThemeProvider>
     );
 };
 
