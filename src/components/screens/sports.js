@@ -1,50 +1,54 @@
 import React, { useState, useEffect } from "react";
+import { fetchSportsArticles, fetchArticleById } from "../Hooks/top10/modArtFetch"; // Import fetchSportsArticles function
+import "../Hooks/top10/Top10Recent.css"; // Import the CSS file
 
 const Sports = () => {
     const [articles, setArticles] = useState([]);
+    const [selectedArticle, setSelectedArticle] = useState(null);
 
     useEffect(() => {
-        const fetchArticles = async () => {
-            try {
-                const response = await fetch("https://murraystatenews.org/wp-json/wp/v2/posts?category_name=athletics&_embed");
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
-                setArticles(data);
-            } catch (error) {
-                console.error('Error fetching articles:', error);
-            }
-        };
-
-        fetchArticles();
+        fetchSportsArticles()
+        .then(data => {
+            setArticles(data);
+        })
+        .catch(error => {
+            console.error('Error fetching sports articles:', error);
+        });
     }, []);
 
-    return (
-        <div className="App">
-            <header className="App-header">
-                <h1>Sports screen</h1>
-            </header>
-            <main>
-                <section>
-                    <h2>Breaking News</h2>
-                    {articles.map(article => (
-                        <div key={article.id}>
-                            <h3>{article.title.rendered}</h3>
-                            {article._embedded && article._embedded['wp:featuredmedia'] && (
-                                <img
-                                    src={article._embedded['wp:featuredmedia'][0].source_url}
-                                    alt={article._embedded['wp:featuredmedia'][0].alt_text}
-                                />
-                            )}
-                            <p>{article.excerpt.rendered}</p>
-                        </div>
-                    ))}
-                </section>
-            </main>
-            <footer>
-                &copy; 2024 Your News App. All rights reserved.
-            </footer>
+    const handleReadMore = async (articleId) => {
+        try {
+            const articleData = await fetchArticleById(articleId);
+            setSelectedArticle(articleData);
+        } catch (error) {
+            console.error('Error fetching article data:', error);
+        }
+    };
+
+    return(
+        <div>
+            {selectedArticle ? (
+                <div className="articleContainer">
+                    <h3 className="articleHeading">{selectedArticle.title.rendered}</h3>
+                    {selectedArticle._embedded && selectedArticle._embedded["wp:featuredmedia"] && (
+                        <img src={selectedArticle._embedded["wp:featuredmedia"][0].source_url} alt={selectedArticle.title.rendered} className="articleImage" />
+                    )}
+                    <div dangerouslySetInnerHTML={{ __html: selectedArticle.content.rendered }}></div>
+                    <button className="backButton" onClick={() => setSelectedArticle(null)}>Back</button>
+                </div>
+            ) : (
+                articles.map((article, index) => (
+                    <div key={index} className="articleContainer">
+                        <h3 className="articleHeading">{article.title.rendered}</h3>
+                        {article._embedded && article._embedded["wp:featuredmedia"] && (
+                            <img src={article._embedded["wp:featuredmedia"][0].source_url} alt={article.title.rendered} className="articleImage" />
+                        )}
+                        <p className="articleExcerpt">{article.excerpt.rendered}</p>
+                        <button className="articleLink" onClick={() => handleReadMore(article.id)}>Read More</button>
+                        <hr/>
+                    </div>
+                ))
+            )}
         </div>
     );
 }

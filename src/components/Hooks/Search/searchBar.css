@@ -1,28 +1,68 @@
-/* SearchBar.css */
-.search-bar-form {
-  display: flex;
-  align-items: center;
+.search-bar-container {
+  position: relative;
 }
 
-.search-bar-input {
+.search-input {
+  width: 300px;
   padding: 8px;
-  border: 1px solid navy;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  margin-right: 8px;
-  font-size: 16px;
-  flex: 1;
 }
 
-.search-bar-button {
-  padding: 8px 16px;
-  background-color: navy;
-  color: yellow;
-  border: none;
+.search-button {
+  padding: 8px 12px;
+  border: 1px solid #007bff;
   border-radius: 4px;
-  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
   cursor: pointer;
 }
 
-.search-bar-button:hover {
-  background-color: #001f3f; /* Darker shade of navy for hover effect */
+.error-message {
+  color: red;
+}
+
+.possible-articles {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.article {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.article:hover {
+  background-color: #f0f0f0;
+}
+
+.selected-post {
+  margin-top: 20px;
+}
+
+.search-results {
+  list-style-type: none;
+  padding: 0;
+}
+
+.search-result {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-result h3 {
+  margin-top: 0;
+}
+
+.search-result:hover {
+  background-color: #f0f0f0;
 }

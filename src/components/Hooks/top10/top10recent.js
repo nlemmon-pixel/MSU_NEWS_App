@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { fetchArticles, fetchArticleById } from "./modArtFetch"; // Import the fetch functions 
+import { fetchArticles, fetchArticleById } from "./modArtFetch"; // Import the fetch functions
 import "./Top10Recent.css"; // Import the CSS file
+import Filter from "./Filter"; // Import the Filter component
 
 const Top10Recent = () => {
     const [articles, setArticles] = useState([]);
     const [selectedArticle, setSelectedArticle] = useState(null);
-    
+    const [showFilter, setShowFilter] = useState(false);
+
     useEffect(() => {
         fetchArticles()
         .then(data => {
@@ -25,8 +27,19 @@ const Top10Recent = () => {
         }
     };
 
-    return(
+    const toggleFilter = () => {
+        setShowFilter(!showFilter);
+    };
+
+    const applyFilters = () => {
+        console.log("Apply filters here:", selectedFilters);
+        setShowFilter(false);
+    };
+
+    return (
         <div>
+            <button className="filterButton" onClick={toggleFilter}>Filter</button>
+            {showFilter && <Filter applyFilters={applyFilters} />}
             {selectedArticle ? (
                 <div className="articleContainer">
                     <h3 className="articleHeading">{selectedArticle.title.rendered}</h3>
@@ -45,12 +58,12 @@ const Top10Recent = () => {
                         )}
                         <p className="articleExcerpt">{article.excerpt.rendered}</p>
                         <button className="articleLink" onClick={() => handleReadMore(article.id)}>Read More</button>
-                        <hr/>
+                        <hr />
                     </div>
                 ))
             )}
         </div>
     );
-}
+};
 
 export default Top10Recent;
