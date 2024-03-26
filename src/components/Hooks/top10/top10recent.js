@@ -3,13 +3,20 @@ import { fetchArticles, fetchArticleById } from "./modArtFetch"; // Import the f
 import "./Top10Recent.css"; // Import the CSS file
 import Filter from "./Filter"; // Import the Filter component
 
-const Top10Recent = () => {
+export const Top10Recent = (props) => {
     const [articles, setArticles] = useState([]);
     const [selectedArticle, setSelectedArticle] = useState(null);
     const [showFilter, setShowFilter] = useState(false);
 
     useEffect(() => {
         fetchArticles()
+        fetch('https://murraystatenews.org/wp-json/wp/v2/posts?_embed&per_page=10')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
             setArticles(data);
         })
@@ -49,6 +56,7 @@ const Top10Recent = () => {
                     <div dangerouslySetInnerHTML={{ __html: selectedArticle.content.rendered }}></div>
                     <button className="backButton" onClick={() => setSelectedArticle(null)}>Back</button>
                 </div>
+
             ) : (
                 articles.map((article, index) => (
                     <div key={index} className="articleContainer">
@@ -63,6 +71,10 @@ const Top10Recent = () => {
                 ))
             )}
         </div>
+
+            );
+        }) 
+
     );
 };
 
