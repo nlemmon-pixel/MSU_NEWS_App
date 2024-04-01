@@ -1,0 +1,11 @@
+/* Header styles */
+.App-header {
+    padding-top: 150px; /* Add a large amount of padding to the top of the header */
+  }
+  
+  /* Main content styles */
+  main {
+    padding-top: 25px; /* Add padding to the top to push content below the fixed header */
+  }
+  
+  

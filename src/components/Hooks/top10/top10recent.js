@@ -7,22 +7,33 @@ export const Top10Recent = (props) => {
     const [articles, setArticles] = useState([]);
     const [selectedArticle, setSelectedArticle] = useState(null);
     const [showFilter, setShowFilter] = useState(false);
+    const [selectedFilters, setSelectedFilters] = useState([]); // Define selectedFilters state
 
     useEffect(() => {
-        fetchArticles()
-        fetch('https://murraystatenews.org/wp-json/wp/v2/posts?_embed&per_page=10')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
+        const fetchData = async () => {
+            try {
+                const articlesData = await fetchArticles(); // Assuming fetchArticles returns data
+                setArticles(articlesData);
+            } catch (error) {
+                console.error('Error fetching data:', error);
             }
-            return response.json();
-        })
-        .then(data => {
-            setArticles(data);
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
+
+            fetch('https://murraystatenews.org/wp-json/wp/v2/posts?_embed&per_page=10')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                setArticles(data);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+        };
+
+        fetchData();
     }, []);
 
     const handleReadMore = async (articleId) => {
@@ -71,10 +82,6 @@ export const Top10Recent = (props) => {
                 ))
             )}
         </div>
-
-            );
-        }) 
-
     );
 };
 

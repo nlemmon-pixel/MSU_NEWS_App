@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './searchBar.css'; // Import CSS file for styling
+import SearchResults from '../../screens/searchResults'; // Import the SearchResults component
 
 const PossibleArticles = ({ articles, onClick }) => (
   <div className="possible-articles">
@@ -40,8 +41,8 @@ const SearchBar = ({ onSearch }) => {
   const handleSearch = async (query) => {
     try {
       const response = await axios.get(`https://murraystatenews.org/wp-json/wp/v2/posts?search=${query}`);
-      setSearchResults(response.data);
-      onSearch(response.data);
+      setSearchResults(response.data); // Set the searchResults state with the fetched data
+      onSearch(response.data); // Call the onSearch callback with the search results
     } catch (error) {
       setError(error.message);
     }
@@ -75,6 +76,15 @@ const SearchBar = ({ onSearch }) => {
     }
   };
 
+  const handleReadMore = async (postId) => {
+    try {
+      const response = await axios.get(`https://murraystatenews.org/wp-json/wp/v2/posts/${postId}`);
+      setSelectedPost(response.data);
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
   return (
     <div className="search-bar-container" ref={searchBarRef}>
       <form onSubmit={handleSubmit}>
@@ -97,14 +107,7 @@ const SearchBar = ({ onSearch }) => {
           <div dangerouslySetInnerHTML={{ __html: selectedPost.content.rendered }} />
         </div>
       )}
-      <ul className="search-results">
-        {searchResults.map((post) => (
-          <li key={post.id} onClick={() => handleClick(post.id)} className="search-result">
-            <h3>{post.title.rendered}</h3>
-            <div dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
-          </li>
-        ))}
-      </ul>
+      <SearchResults results={searchResults} handleReadMore={handleReadMore} />
     </div>
   );
 };
