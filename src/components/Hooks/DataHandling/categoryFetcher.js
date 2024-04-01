@@ -7,7 +7,7 @@ const categoriesToDisplay = [4, 3, 5, 6];
     5 = Features
     6 = Opinion
 */
-const urlCategories = [];
+let urlCategories = [];
 
 export const DisplayCategories = () => {
     const [categories, setCategories] = useState([]);
@@ -58,4 +58,22 @@ export const DisplayCategories = () => {
 
 export function getFilters(){
     return urlCategories;
+}
+export function getFiltersUriExtension(){
+    urlCategories = categoriesToDisplay;
+    let extension = "";
+    urlCategories.forEach((value, index)=> {
+        if(index == 0){
+            extension += "&categories=";
+        }
+        if(value != null){
+            if(index < urlCategories.length-1){
+                extension += value + ",";
+            } else {
+                extension += value;
+            }
+        }       
+    });
+    
+    return extension;
 }
