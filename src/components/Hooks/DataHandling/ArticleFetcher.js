@@ -77,6 +77,12 @@ export const Top10Recent = (props) => {
         }
     };
 
+    const getAd = (index) => {
+        if(index%5 == 0 && index !=0){
+            return (<div className="adSpace"> <h1>This is an Ad.</h1> </div>)
+        }
+    }
+
     return(
         <div>
             {selectedArticle ? (
@@ -91,14 +97,17 @@ export const Top10Recent = (props) => {
 
             ) : (
                 articles.map((article, index) => (
-                    <div key={index} className="articleContainer">
-                        <h3 className="articleHeading" dangerouslySetInnerHTML={{ __html: article.title.rendered }}/>
-                        {article._embedded && article._embedded["wp:featuredmedia"] && (
-                            <img src={article._embedded["wp:featuredmedia"][0].source_url} alt={article.title.rendered} className="articleImage" />
-                        )}
-                        <p className="articleExcerpt" dangerouslySetInnerHTML={{ __html: article.excerpt.rendered }} />
-                        <button className="articleLink" onClick={() => handleReadMore(article.id)}>Read More</button>
-                        <hr/>
+                    <div>
+                        <div>{getAd(index)}</div>
+                        <div key={index} className="articleContainer">
+                            <h3 className="articleHeading" dangerouslySetInnerHTML={{ __html: article.title.rendered }}/>
+                            {article._embedded && article._embedded["wp:featuredmedia"] && (
+                                <img src={article._embedded["wp:featuredmedia"][0].source_url} alt={article.title.rendered} className="articleImage" />
+                            )}
+                            <p className="articleExcerpt" dangerouslySetInnerHTML={{ __html: article.excerpt.rendered }} />
+                            <button className="articleLink" onClick={() => handleReadMore(article.id)}>Read More</button>
+                            <hr/>
+                        </div>
                     </div>
                 ))
             )}

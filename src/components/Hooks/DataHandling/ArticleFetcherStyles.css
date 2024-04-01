@@ -11,27 +11,38 @@
 }
 
   
-  .articleHeading {
-    color: navy;
-    font-size: 1.5rem;
-  }
+.articleHeading {
+  color: navy;
+  font-size: 1.5rem;
+}
   
-  .articleExcerpt {
-    color: #333; /* Dark gray */
-  }
+.articleExcerpt {
+  color: #333; /* Dark gray */
+}
   
-  .articleLink {
-    color: blue;
-    text-decoration: none;
-  }
+.articleLink {
+  color: blue;
+  text-decoration: none;
+}
   
-  .articleLink:hover {
-    text-decoration: underline;
-  }
-
-  .articleImage {
-    max-width: 100%; /* Ensure image doesn't exceed container width */
-    height: auto; /* Maintain aspect ratio */
+.articleLink:hover {
+  text-decoration: underline;
 }
 
-  
+.articleImage {
+  max-width: 100%; /* Ensure image doesn't exceed container width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.adSpace {
+  border: 1px solid navy;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: navy; /* Light gray background */
+  max-width: 600px; /* Set a maximum width */
+  margin-left: auto; /* Center the container horizontally */
+  margin-right: auto; /* Center the container horizontally */
+  color:gold;
+}
+

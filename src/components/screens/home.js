@@ -1,6 +1,7 @@
 import React from "react";
 //import Recent from "../Hooks/top10/top10recent";
 import {Top10Recent} from "../Hooks/DataHandling/ArticleFetcher";
+import "../Hooks/Constants/FHstyles.css";
 
 const Home = () => {
 
@@ -8,7 +9,7 @@ const Home = () => {
         <div className="App">
             <header className="App-header">
                 <h1>The Murray State News</h1>
-            </header>
+            </header >
             <main>
                 <section>
                     <h2>Breaking News</h2>

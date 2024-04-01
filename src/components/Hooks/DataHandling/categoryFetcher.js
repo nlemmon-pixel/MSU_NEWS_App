@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 
-const categoriesToDisplay = ["Athletics", "News", "Features"];
+const categoriesToDisplay = [4, 3, 5, 6];
+/*  
+    3 = Athletics   
+    4 = news
+    5 = Features
+    6 = Opinion
+*/
+const urlCategories = [];
 
 export const DisplayCategories = () => {
     const [categories, setCategories] = useState([]);
@@ -23,14 +30,19 @@ export const DisplayCategories = () => {
     }, []);
 
     function updateCategoryFilter(categoryID){
-        //nothing here yet
-        console.log("category filter updated: " + categoryID);
+        if(urlCategories.indexOf(categoryID) > -1){
+            const indexOfCat = urlCategories.indexOf(categoryID);
+            delete urlCategories[indexOfCat];
+        } else {
+            urlCategories.push(categoryID);
+        }
+        console.log(urlCategories);
     }
 
     return (
         <div className = "CategoryFilteringButtons">
             {categories.map(category => {
-                if(categoriesToDisplay.indexOf(category.name.trim()) > -1){ //the current category (in the iteration) is one that we want to display: listed in categoriesToDisplay
+                if(categoriesToDisplay.indexOf(category.id) > -1){ //the current category (in the iteration) is one that we want to display: listed in categoriesToDisplay
                     return(<button className="CategorySelectionButton" key={category.id} onClick={() => updateCategoryFilter(category.id)}>{category.name}</button>)
                 }
             })}
@@ -42,4 +54,8 @@ export const DisplayCategories = () => {
             */}
         </div>
     );
+}
+
+export function getFilters(){
+    return urlCategories;
 }
