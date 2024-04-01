@@ -17,21 +17,17 @@ const Settings = () => {
             </header>
             <main>
                 <section>
-                    {/* News articles go here */}
-                    <h2>Breaking News</h2>
-                    <p>Article 1 summary...</p>
-                    <p>Article 2 summary...</p>
-                    {/* Add more articles as needed */}
+                    
                 </section>
                 <section>
                     {/* Toggle switch for theme */}
                     <label>
+                    <input
+                        type="checkbox"
+                        checked={isDarkMode}
+                        onChange={handleToggle}
+                    />
                         Dark Mode
-                        <input
-                            type="checkbox"
-                            checked={isDarkMode}
-                            onChange={handleToggle}
-                        />
                     </label>
                 </section>
             </main>

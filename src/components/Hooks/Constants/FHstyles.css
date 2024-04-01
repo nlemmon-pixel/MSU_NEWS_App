@@ -10,7 +10,7 @@ body {
 #Header, #Footer {
     position: fixed;
     width: 100%;
-    background-color:rgba(100,0,0,0.5); /* Light mode background color */
+    background-color: gold; /* Light mode background color */
     color: navy; /* Light mode text color */
     padding: 10px;
     z-index: 1000; /* Ensuring the header and footer stay above other content */
