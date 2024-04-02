@@ -1,116 +1,68 @@
-/* styles.css */
+.search-bar-container {
+  position: relative;
+}
 
-/* Light mode styles */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
+.search-input {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-button {
+  padding: 8px 12px;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.error-message {
+  color: red;
+}
+
+.possible-articles {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.article {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.article:hover {
+  background-color: #f0f0f0;
+}
+
+.selected-post {
+  margin-top: 20px;
+}
+
+.search-results {
+  list-style-type: none;
   padding: 0;
 }
 
-#Header, #Footer {
-  position: fixed;
-  width: 100%;
-  background-color: white; /* Light mode background color */
-  color: navy; /* Light mode text color */
+.search-result {
+  margin-top: 20px;
   padding: 10px;
-  z-index: 1000; /* Ensuring the header and footer stay above other content */
-}
-
-/* Header styles */
-#Header {
-  position: fixed;
-  width: 100%;
-  background-color: white; /* Change background color to white */
-  color: navy; /* Change text color to navy blue */
-  padding: 10px;
-  top: 0; /* Fix the header to the top of the screen */
-  z-index: 1000; /* Ensuring the header stays above other content */
-}
-
-/* Footer styles */
-#Footer {
-  position: fixed;
-  width: 100%;
-  background-color: white; /* Change background color to white */
-  color: navy; /* Change text color to navy blue */
-  padding: 10px;
-  bottom: 0; /* Fix the footer to the bottom of the screen */
-  z-index: 1000; /* Ensuring the footer stays above other content */
-}
-
-.navButton {
-  background-color: white; /* Light mode background color */
-  color: navy; /* Light mode text color */
-  border: 2px solid navy; /* Adding border for contrast */
-  padding: 8px 16px;
-  cursor: pointer;
-  font-size: 16px;
-  margin: 0;
-  width: calc(100% / 5); /* Divide the width equally among the buttons */
-}
-
-.navButton:hover {
-  background-color: navy; /* Light mode background color on hover */
-  color: white; /* Light mode text color on hover */
-}
-
-.search-bar-input {
-  padding: 8px;
-  border: none;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  margin-right: 8px;
-  font-size: 16px;
-  background-color: white; /* Light mode background color for input */
 }
 
-.search-bar-button {
-  padding: 8px 16px;
-  background-color: yellow;
-  color: navy;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
+.search-result h3 {
+  margin-top: 0;
 }
 
-.search-bar-button:hover {
-  background-color: #ffeb3b; /* Hover color for button */
+.search-result:hover {
+  background-color: #f0f0f0;
 }
-
-/* Dark mode styles */
-.dark-mode body {
-  background-color: navy; /* Dark mode background color */
-  color: white; /* Dark mode text color */
-}
-
-.dark-mode #Header, .dark-mode #Footer {
-  background-color: navy; /* Dark mode background color */
-  color: white; /* Dark mode text color */
-}
-
-.dark-mode .navButton {
-  background-color: navy; /* Dark mode background color */
-  color: white; /* Dark mode text color */
-  border-color: white; /* Border color for contrast */
-}
-
-.dark-mode .navButton:hover {
-  background-color: white; /* Dark mode background color on hover */
-  color: navy; /* Dark mode text color on hover */
-}
-
-.dark-mode .search-bar-input {
-  background-color: navy; /* Dark mode background color for input */
-  color: white; /* Dark mode text color for input */
-}
-
-.dark-mode .search-bar-button {
-  background-color: navy; /* Dark mode background color for button */
-  color: white; /* Dark mode text color for button */
-}
-
-.dark-mode .search-bar-button:hover {
-  background-color: #ffeb3b; /* Hover color for button */
-  color: navy; /* Dark mode text color on hover */
-}
-

@@ -9,7 +9,8 @@ import Athletics from '../components/screens/athletics';
 import Footer from '../components/Hooks/Constants/footer';
 import Header from '../components/Hooks/Constants/header';
 import SplashScreen from '../components/screens/splash/splashScreen'; // Import the SplashScreen component
-
+import SearchResults from '../components/screens/searchResults';
+import FullArticle from '../components/screens/fullArticleViewer';
 const App = () => {
     const [showSplash, setShowSplash] = useState(true);
 
@@ -38,6 +39,8 @@ const App = () => {
                         <Route exact path="/news" element={<News />} />
                         <Route exact path="/settings" element={<Settings />} />
                         <Route exact path="/athletics" element={<Athletics />} />
+                        <Route exact path="/search/:query" element={<SearchResults />} />
+                        <Route exact path="/article/:id" element={<FullArticle />} />
                     </Routes>
                     <Footer />
                 </BrowserRouter>

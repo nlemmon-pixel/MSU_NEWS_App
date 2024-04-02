@@ -22,6 +22,7 @@ const Settings = () => {
                 <section>
                     {/* Toggle switch for theme */}
                     <label>
+                        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                     <input
                         type="checkbox"
                         checked={isDarkMode}
@@ -32,7 +33,7 @@ const Settings = () => {
                 </section>
             </main>
             <footer>
-                &copy; 2024 Your News App. All rights reserved.
+                
             </footer>
         </div>
     );
