@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from '../components/screens/ThemeContext';
+import "./AppWrapperStyles.css";
 import Home from '../components/screens/home';
 import News from '../components/screens/news';
 import Help from '../components/screens/help';
 import Settings from '../components/screens/settings';
 import Athletics from '../components/screens/athletics';
+import Features from '../components/screens/features';
+import Opinion from '../components/screens/opinion';
 import Footer from '../components/Hooks/Constants/footer';
 import Header from '../components/Hooks/Constants/header';
 import SplashScreen from '../components/screens/splash/splashScreen'; // Import the SplashScreen component
@@ -33,15 +36,19 @@ const App = () => {
             ) : (
                 <BrowserRouter>
                     <Header />
+                    <div id="main-page-content">
                     <Routes>
                         <Route exact path="/" element={<Home />} />
                         <Route exact path="/help" element={<Help />} />
                         <Route exact path="/news" element={<News />} />
                         <Route exact path="/settings" element={<Settings />} />
                         <Route exact path="/athletics" element={<Athletics />} />
+                        <Route exact path="/Features" element={<Features />} />
+                        <Route exact path="/Opinion" element={<Opinion />} />
                         <Route exact path="/search/:query" element={<SearchResults />} />
                         <Route exact path="/article/:id" element={<FullArticle />} />
                     </Routes>
+                    </div>
                     <Footer />
                 </BrowserRouter>
             )}

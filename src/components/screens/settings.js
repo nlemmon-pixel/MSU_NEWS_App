@@ -22,7 +22,6 @@ const Settings = () => {
                 <section>
                     {/* Toggle switch for theme */}
                     <label>
-                        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                     <input
                         type="checkbox"
                         checked={isDarkMode}

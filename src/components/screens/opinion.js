@@ -1,7 +1,7 @@
 import React from "react";
 import {Top10OfCategory} from "../Hooks/DataHandling/ArticleFetcher"; 
 
-const Sports = () => {
+const Opinion = () => {
 
     return(
         <div className="App">
@@ -9,7 +9,7 @@ const Sports = () => {
             </header>
             <main>
                 <section>
-                    <Top10OfCategory CategoryID="3"/>
+                    <Top10OfCategory CategoryID="6"/>
                 </section>
             </main>
             <footer>
@@ -19,4 +19,4 @@ const Sports = () => {
     );  
 }
 
-export default Sports;
+export default Opinion;

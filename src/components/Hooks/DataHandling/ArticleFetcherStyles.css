@@ -1,6 +1,6 @@
 /* Top10Recent.css */
 .articleContainer {
-  border: 1px solid navy;
+  border: 1px solid #002144;
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 20px;
@@ -12,7 +12,7 @@
 
   
 .articleHeading {
-  color: navy;
+  color: #002144;
   font-size: 1.5rem;
 }
   
@@ -35,11 +35,11 @@
 }
 
 .adSpace {
-  border: 1px solid navy;
+  border: 1px solid #002144;
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 20px;
-  background-color: navy; /* Light gray background */
+  background-color: #002144; /* Light gray background */
   max-width: 600px; /* Set a maximum width */
   margin-left: auto; /* Center the container horizontally */
   margin-right: auto; /* Center the container horizontally */

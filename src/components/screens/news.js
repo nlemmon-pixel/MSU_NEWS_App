@@ -1,15 +1,14 @@
 import React from "react";
-import {Top10Breaking} from "../Hooks/DataHandling/ArticleFetcher.js";
+import {Top10OfCategory} from "../Hooks/DataHandling/ArticleFetcher.js";
 
 const News = () => {
     return(
        <div className="App">
        <header className="App-header">
-           <h1>News screen</h1>
-           <h2>Breaking News</h2>
+           <h1>Breaking News</h1>
        </header>
        <main>
-           <Top10Breaking />
+           <Top10OfCategory CategoryID = "3530"/>
        </main>
        <footer>
            &copy; 2024 Your News App. All rights reserved.
