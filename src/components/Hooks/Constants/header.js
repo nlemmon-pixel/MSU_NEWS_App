@@ -11,7 +11,7 @@ const Header = () => {
 
     return(
         <nav id="Header">
-            <p className="headerTitle">MSU News</p>
+            <p className="headerTitle">The Murray State News</p>
             <SearchBar id="SearchBar" onSearch={handleSearch}/>
         </nav>
     );

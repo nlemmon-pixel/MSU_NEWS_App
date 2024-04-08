@@ -6,7 +6,7 @@ import SearchResults from '../../screens/searchResults'; // Import the SearchRes
 const PossibleArticles = ({ articles, onClick }) => (
   <div className="possible-articles">
     {articles.map((article) => (
-      <div key={article.id} className="article" onClick={() => onClick(article.id)}>
+      <div key={article.id} className="article" onClick={() => onClick(article.id)} style={{color:'navy'}}>
         {article.title.rendered}
       </div>
     ))}

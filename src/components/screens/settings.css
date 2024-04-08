@@ -1,0 +1,11 @@
+/* Settings.css */
+.light-mode {
+    background-color: #ffffff; /* Light mode background color */
+    color: #002144; /* Light mode text color */
+}
+
+.dark-mode {
+    background-color: #002144; /* Dark mode background color */
+    color: #ffffff; /* Dark mode text color */
+}
+

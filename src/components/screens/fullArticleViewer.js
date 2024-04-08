@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { fetchArticleById } from '../Hooks/top10/modArtFetch'; // Import the fetchArticleById function
+import { fetchArticleById } from '../Hooks/DataHandling/ArticleFetcher.js'; // Import the fetchArticleById function
 
 const FullArticle = () => {
   const { id } = useParams(); // Get the article ID from the URL params
@@ -36,11 +36,11 @@ const FullArticle = () => {
 
   return (
     <div>
-      <Link to={`/search/${id}`}>Back to Search Results</Link>
-      <h2>{article.title.rendered}</h2>
-      <div dangerouslySetInnerHTML={{ __html: article.content.rendered }} />
+        <h2>{article.title.rendered}</h2>
+        <div dangerouslySetInnerHTML={{ __html: article.content.rendered }} />
     </div>
   );
-};
+}
+
 
 export default FullArticle;
