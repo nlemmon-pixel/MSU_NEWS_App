@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from '../components/screens/ThemeContext';
-import "./AppWrapperStyles.css";
+//import "./AppWrapperStyles.css";
 import Home from '../components/screens/home';
 import News from '../components/screens/news';
 import Help from '../components/screens/help';
@@ -14,6 +14,7 @@ import Header from '../components/Hooks/Constants/header';
 import SplashScreen from '../components/screens/splash/splashScreen'; // Import the SplashScreen component
 import SearchResults from '../components/screens/searchResults';
 import FullArticle from '../components/screens/fullArticleViewer';
+
 const App = () => {
     const [showSplash, setShowSplash] = useState(true);
 
@@ -29,14 +30,14 @@ const App = () => {
 
     return (
         <ThemeProvider> 
-        <div id="page-container">
+        <div id="page-container" style={{display:"flex", minHeight:"100vh", Width:"100vw", flexDirection:"column"}}>
             {showSplash ? (
                 // Render the SplashScreen component if showSplash is true
                 <SplashScreen />
             ) : (
                 <BrowserRouter>
                     <Header />
-                    <div id="main-page-content">
+                    <div id="main-page-content" style={{flex:"1 1 auto"}}>
                     <Routes>
                         <Route exact path="/" element={<Home />} />
                         <Route exact path="/help" element={<Help />} />
