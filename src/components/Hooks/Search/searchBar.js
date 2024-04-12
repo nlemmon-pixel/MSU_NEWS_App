@@ -94,8 +94,8 @@ const SearchBar = ({ onSearch }) => {
 
   return (
     <div className="search-bar-container" ref={searchBarRef}>
-      <div className={`search-bar ${isActive ? 'active' : ''}`}>
-        <form onSubmit={handleSubmit}>
+      <div>
+        <form onSubmit={handleSubmit} className={`search-bar ${isActive ? 'active' : ''}`}>
           <input
             type="text"
             value={searchTerm}
@@ -104,9 +104,7 @@ const SearchBar = ({ onSearch }) => {
             className={`search-input ${isActive ? 'active' : ''}`}
           />
         </form>
-        <div className="search-icon" onClick={toggleSearchBar}>
-          <img src={searchIcon} alt="Search" />
-        </div>
+          <img src={searchIcon} alt="Search" className="search-icon" onClick={toggleSearchBar}/>
       </div>
       {error && <p className="error-message">Error: {error}</p>}
       {possibleArticles.length > 0 && (

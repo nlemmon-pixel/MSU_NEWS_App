@@ -2,8 +2,10 @@
 
 /* Header styles */
 #Header {
-  background-color: rgba(100,100,100,0.5);
-  color: #fff;
+  /*background-color: rgba(100,100,100,0.5);
+  color: #fff;*/
+  background-color:#002144;
+  color:#FFFFFF;
   padding: 20px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   left: 0;
@@ -18,7 +20,6 @@
 .headerTitle {
   font-size: 1.5rem;
   margin: 0;
-  color: #002144;
 }
 
 /* SearchBar styles */
@@ -29,7 +30,9 @@
 
 /* Footer styles */
 #Footer {
-  background-color: rgba(100,100,100,0.5);
+  /*background-color: rgba(100,100,100,0.5);*/
+  background-color: #002144;
+  color:#FFFFFF;
   padding: 20px;
   text-align: center;
   position: sticky;
@@ -73,78 +76,3 @@
       flex: 1 0 45%;
   }
 }
-=======
-    /*background-color: lightgray; /* Background color of the header */
-    /*background-color: rgba(100,100,100,0.5);*/
-    background-color:#002144;
-    color: #fff; /* Text color of the header */
-    padding: 20px; /* Padding around the content inside the header */
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle depth effect */
-    /*position: fixed; /* Fix the header at the top of the viewport */
-    /*top: 0; /* Position the header at the top */
-    left: 0; /* Align the header to the left */
-    width: 100%; /* Set the width of the header to full */
-    z-index: 1000; /* Ensure the header is above other content */
-    top:0;
-    position:sticky;
-    flex: 0 0 auto;
-  }
-  
-  /* Title styles */
-  .headerTitle {
-    font-size: 1.5rem; /* Adjust the font size of the title */
-    margin: 0; /* Remove default margin */
-    /*color:#002144;*/
-    color:#FFFFFF
-  }
-  
-  /* SearchBar styles */
-  #SearchBar {
-    margin-left: auto; /* Align the search bar to the right */
-    margin-right: 20px; /* Add some margin to the right of the search bar */
-  }
-  
-  /* Footer styles */
-  #Footer {
-    /*background-color: lightgray; /* Background color of the footer */
-    /*background-color: rgba(100,100,100,0.5);*/
-    background-color:#002144;
-    padding: 20px; /* Padding around the content inside the footer */
-    text-align: center; /* Align buttons to the center */
-    /*bottom:0;*/
-    /*position:fixed;*/
-    width:100%;
-    position:sticky;
-    flex: 0 0 auto;
-    bottom:0;
-  }
-  
-  /* Navigation button styles */
-  .navButton {
-    /*background-color: #4CAF50; /* Background color of the buttons */
-    /*background-color:#002144;*/
-    background-color: #FFFFFF;
-    /*color: white; /* Text color of the buttons */
-    color:#002144;
-    padding: 10px 20px; /* Padding inside the buttons */
-    border: none; /* Remove border */
-    border-radius: 25px; /* Make buttons rounded */
-    margin: 5px; /* Add margin between buttons */
-    cursor: pointer; /* Change cursor on hover */
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Add shadow for a subtle depth effect */
-  }
-  
-  /* Button hover effect */
-  .navButton:hover {
-    /*background-color: #45a049; /* Darken background color on hover */
-    background-color:#F0F0F0;
-    color:#002241;
-  }
-  
-  /* Button active state */
-  .navButton:active {
-    /*background-color: #3e8e41; /* Darken background color when button is clicked */
-    background-color:#F0F0F0;
-    color:#002241;
-  }
-
