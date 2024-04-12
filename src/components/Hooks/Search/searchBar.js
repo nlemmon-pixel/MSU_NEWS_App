@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './searchBar.css'; // Import CSS file for styling
 import SearchResults from '../../screens/searchResults'; // Import the SearchResults component
+import searchIcon from '../../../icons/SearchIcon.png'; // Import the search icon image
 
 const PossibleArticles = ({ articles, onClick }) => (
   <div className="possible-articles">
@@ -19,6 +20,7 @@ const SearchBar = ({ onSearch }) => {
   const [selectedPost, setSelectedPost] = useState(null);
   const [possibleArticles, setPossibleArticles] = useState([]);
   const [error, setError] = useState(null);
+  const [isActive, setIsActive] = useState(false); // State to track if the search bar is active
   const searchBarRef = useRef(null);
 
   useEffect(() => {
@@ -29,6 +31,7 @@ const SearchBar = ({ onSearch }) => {
         setPossibleArticles([]);
         setSearchResults([]);
         setSearchTerm('');
+        setIsActive(false); // Deactivate the search bar when clicked outside
       }
     };
 
@@ -85,19 +88,27 @@ const SearchBar = ({ onSearch }) => {
     }
   };
 
+  const toggleSearchBar = () => {
+    setIsActive(!isActive); // Toggle the active state of the search bar
+  };
+
   return (
     <div className="search-bar-container" ref={searchBarRef}>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={searchTerm}
-          onChange={handleChange}
-          placeholder="Search..."
-          className="search-input"
-        />
-        <button type="submit" className="search-button">Search</button>
-        {error && <p className="error-message">Error: {error}</p>}
-      </form>
+      <div className={`search-bar ${isActive ? 'active' : ''}`}>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={handleChange}
+            placeholder="Search..."
+            className={`search-input ${isActive ? 'active' : ''}`}
+          />
+        </form>
+        <div className="search-icon" onClick={toggleSearchBar}>
+          <img src={searchIcon} alt="Search" />
+        </div>
+      </div>
+      {error && <p className="error-message">Error: {error}</p>}
       {possibleArticles.length > 0 && (
         <PossibleArticles articles={possibleArticles} onClick={handleClick} />
       )}

@@ -12,7 +12,6 @@ const Header = () => {
 
     return(
         <nav id="Header">
-            {/*<img src={NewsLogo} alt="The Murray State News"/>*/}
             <p className="headerTitle">The Murray State News</p>
             <SearchBar id="SearchBar" onSearch={handleSearch}/>
         </nav>
