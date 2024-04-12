@@ -3,7 +3,8 @@
 /* Header styles */
 #Header {
     /*background-color: lightgray; /* Background color of the header */
-    background-color: rgba(100,100,100,0.5);
+    /*background-color: rgba(100,100,100,0.5);*/
+    background-color:#002144;
     color: #fff; /* Text color of the header */
     padding: 20px; /* Padding around the content inside the header */
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle depth effect */
@@ -21,7 +22,8 @@
   .headerTitle {
     font-size: 1.5rem; /* Adjust the font size of the title */
     margin: 0; /* Remove default margin */
-    color:#002144;
+    /*color:#002144;*/
+    color:#FFFFFF
   }
   
   /* SearchBar styles */
@@ -33,7 +35,8 @@
   /* Footer styles */
   #Footer {
     /*background-color: lightgray; /* Background color of the footer */
-    background-color: rgba(100,100,100,0.5);
+    /*background-color: rgba(100,100,100,0.5);*/
+    background-color:#002144;
     padding: 20px; /* Padding around the content inside the footer */
     text-align: center; /* Align buttons to the center */
     /*bottom:0;*/
@@ -47,8 +50,10 @@
   /* Navigation button styles */
   .navButton {
     /*background-color: #4CAF50; /* Background color of the buttons */
-    background-color:#002144;
-    color: white; /* Text color of the buttons */
+    /*background-color:#002144;*/
+    background-color: #FFFFFF;
+    /*color: white; /* Text color of the buttons */
+    color:#002144;
     padding: 10px 20px; /* Padding inside the buttons */
     border: none; /* Remove border */
     border-radius: 25px; /* Make buttons rounded */
@@ -60,7 +65,7 @@
   /* Button hover effect */
   .navButton:hover {
     /*background-color: #45a049; /* Darken background color on hover */
-    background-color:#FFFFFF;
+    background-color:#F0F0F0;
     color:#002241;
   }
   

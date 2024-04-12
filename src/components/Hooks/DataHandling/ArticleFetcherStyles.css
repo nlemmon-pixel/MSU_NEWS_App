@@ -5,7 +5,7 @@
   padding: 10px;
   margin-bottom: 20px;
   background-color: #f0f0f0; /* Light gray background */
-  max-width: 600px; /* Set a maximum width */
+  width: 90%; /* Set a maximum width */
   margin-left: auto; /* Center the container horizontally */
   margin-right: auto; /* Center the container horizontally */
 }
@@ -40,9 +40,11 @@
   padding: 10px;
   margin-bottom: 20px;
   background-color: #002144; /* Light gray background */
-  max-width: 600px; /* Set a maximum width */
+  /*max-width: 600px; /* Set a maximum width */
+  width:fit-content;
   margin-left: auto; /* Center the container horizontally */
   margin-right: auto; /* Center the container horizontally */
   color:gold;
 }
+
 

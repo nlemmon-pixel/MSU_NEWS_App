@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import './SplashScreen.css'; // Import additional CSS for styling
-import TheMurrayStateNewsLogo from './TheMurrayStateNews.png';
+import TheMurrayStateNewsLogo from '../../../Images/TheMurrayStateNews.png';
 
 const SplashScreen = () => {
     return (
