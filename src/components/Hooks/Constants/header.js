@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchBar from '../Search/searchBar';
 import './FHstyles.css'; // Import the CSS stylesheet
+import NewsLogo from '../../../Images/TheMurrayStateNews.png';
 
 const Header = () => {
     // Function to handle search logic
