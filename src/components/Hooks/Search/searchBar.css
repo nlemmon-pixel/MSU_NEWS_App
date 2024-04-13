@@ -1,7 +1,6 @@
 .search-bar-container {
   top: 0;
-  left: 50%;
-  /*transform: translateX(-50%);*/
+  width:fit-content;
 }
 
 .search-bar {
@@ -27,11 +26,6 @@
 }
 
 .search-icon {
-  /*position: absolute;
-  /*
-  top: 0;
-  right: 0;
-  */
   padding: 8px;
   cursor: pointer;
   display:inline;

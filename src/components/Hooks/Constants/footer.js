@@ -11,7 +11,7 @@ const Footer = () => {
     const navigate = useNavigate();
     
     return (
-        <nav id="Footer">
+        <nav id="Footer-Content-Container">
             {/*<button className="navButton" onClick={() => navigate('/')}>Home</button>
             <button className="navButton" onClick={() => navigate('/news')}>News</button>
             <button className="navButton" onClick={() => navigate('/settings')}>Settings</button>

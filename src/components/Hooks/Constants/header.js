@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchBar from '../Search/searchBar';
 import './FHstyles.css'; // Import the CSS stylesheet
-import NewsLogo from '../../../Images/TheMurrayStateNews.png';
+import NewsLogo from "../../../Images/Logo_Final_white_print.png";
 
 const Header = () => {
     // Function to handle search logic
@@ -11,9 +11,11 @@ const Header = () => {
     };
 
     return(
-        <nav id="Header">
-            <p className="headerTitle">The Murray State News</p>
-            <SearchBar id="SearchBar" onSearch={handleSearch}/>
+        <nav id="Header-Content-Container">
+            <img src={NewsLogo} alt="The Murray State News" className="headerTitle" width="130px" height="40px"/>
+            <div id="SearchBar">
+                <SearchBar onSearch={handleSearch}/>
+            </div>
         </nav>
     );
 }

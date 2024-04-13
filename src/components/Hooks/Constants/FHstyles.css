@@ -1,7 +1,7 @@
 /* FHstyles.css */
 
 /* Header styles */
-#Header {
+#Header-Content-Container {
   /*background-color: rgba(100,100,100,0.5);
   color: #fff;*/
   background-color:#002144;
@@ -15,6 +15,9 @@
   position: sticky;
   flex: 0 0 auto;
 }
+#Header-Content-Container *{
+  display: inline-block;
+}
 
 /* Title styles */
 .headerTitle {
@@ -22,14 +25,14 @@
   margin: 0;
 }
 
-/* SearchBar styles */
 #SearchBar {
-  margin-left: auto;
-  margin-right: 20px;
+  position:absolute;
+  top:0;
+  right:0;
 }
 
 /* Footer styles */
-#Footer {
+#Footer-Content-Container {
   /*background-color: rgba(100,100,100,0.5);*/
   background-color: #002144;
   color:#FFFFFF;
