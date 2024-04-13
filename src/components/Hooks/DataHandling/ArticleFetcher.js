@@ -117,7 +117,7 @@ export const Top10OfCategory = (props) =>
                     {selectedArticle._embedded && selectedArticle._embedded["wp:featuredmedia"] && (
                         <img src={selectedArticle._embedded["wp:featuredmedia"][0].source_url} alt={selectedArticle.title.rendered} className="articleImage" />
                     )}
-                    <div dangerouslySetInnerHTML={{ __html: selectedArticle.content.rendered }}></div>
+                    <div className="articleContent" dangerouslySetInnerHTML={{ __html: selectedArticle.content.rendered }}></div>
                     <button className="backButton" onClick={() => setSelectedArticle(null)}>Back</button>
                 </div>
 
