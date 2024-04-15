@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { ThemeProvider } from '../components/screens/ThemeContext';
-//import "./AppWrapperStyles.css";
+import "./AppWrapperStyles.css";
 import Home from '../components/screens/home';
 import News from '../components/screens/news';
 import Help from '../components/screens/help';
@@ -29,7 +28,6 @@ const App = () => {
     }, []); // Empty dependency array ensures this effect runs only once after initial render
 
     return (
-        <ThemeProvider> 
         <div id="page-container" style={{display:"flex", minHeight:"100vh", Width:"100vw", flexDirection:"column"}}>
             {showSplash ? (
                 // Render the SplashScreen component if showSplash is true
@@ -54,7 +52,6 @@ const App = () => {
                 </BrowserRouter>
             )}
         </div>
-        </ThemeProvider>
     );
 };
 

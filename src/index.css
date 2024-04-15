@@ -1,0 +1,25 @@
+:root {
+    /*set defaults as light mode (is overriden either way once darkMode.js renders)*/
+    --app_background_color: #FFFFFF;
+    --app_text_color: #002144;
+    --footer_header_background_color: #002144;
+    --footer_header_text_color: #FFFFFF;
+}
+
+/*dark mode variables*/
+[data-theme = "dark"] {
+    --app_background_color: #002144;
+    --app_text_color: #FFFFFF;
+
+    --footer_header_background_color: #0F0F0F;
+    --footer_header_text_color:  #FFFFFF;;
+}
+
+/*light mode variables*/
+[data-theme = "light"] {
+    --app_background_color: #FFFFFF;
+    --app_text_color: #002144;
+
+    --footer_header_background_color: #002144;
+    --footer_header_text_color: #FFFFFF;
+}
