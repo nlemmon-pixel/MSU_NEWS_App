@@ -60,12 +60,18 @@ function handleVideos(){
 
 }
 
+function handleAudio(){
+
+}
+
 export function handleMultimedia(passedMedia){
     if(false){
         handlePhotos();
     } else if(false) {
         handleVideos();
-    } else {
+    } else if(false){
+        handleAudio();
+    }else{
         return passedMedia;
     }
 }

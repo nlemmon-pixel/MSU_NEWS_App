@@ -13,6 +13,7 @@ import Header from '../components/Hooks/Constants/header';
 import SplashScreen from '../components/screens/splash/splashScreen'; // Import the SplashScreen component
 import SearchResults from '../components/screens/searchResults';
 import FullArticle from '../components/screens/fullArticleViewer';
+import SearchedArticle from '../components/screens/searchedArticle';
 
 const App = () => {
     const [showSplash, setShowSplash] = useState(true);
@@ -46,6 +47,7 @@ const App = () => {
                         <Route exact path="/Opinion" element={<Opinion />} />
                         <Route exact path="/search/:query" element={<SearchResults />} />
                         <Route exact path="/article/:id" element={<FullArticle />} />
+                        <Route exact path="/searchedArticle" element={<SearchedArticle />} />
                     </Routes>
                     </div>
                     <Footer />
