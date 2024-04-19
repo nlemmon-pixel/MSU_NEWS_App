@@ -56,6 +56,7 @@ const SearchBar = () => {
     
     //const response = await axios.get(`https://murraystatenews.org/wp-json/wp/v2/posts?search=${searchTerm}`);
     navigate('/search', {state:{searchResults: possibleArticles}});
+    setPossibleArticles([]);
     //handleSearch(searchTerm);
   };
   
