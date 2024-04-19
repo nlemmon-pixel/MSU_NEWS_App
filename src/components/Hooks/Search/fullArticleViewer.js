@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { fetchArticleById } from '../Hooks/DataHandling/ArticleFetcher.js'; // Import the fetchArticleById function
+import { fetchArticleById } from '../DataHandling/ArticleFetcher.js'; // Import the fetchArticleById function
 
 const FullArticle = () => {
   const { id } = useParams(); // Get the article ID from the URL params

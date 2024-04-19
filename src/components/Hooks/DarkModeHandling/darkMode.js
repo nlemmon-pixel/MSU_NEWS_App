@@ -12,8 +12,6 @@ class DarkMode extends React.Component {
     async componentDidMount() {
         if(document.querySelector("body").getAttribute('data-theme') == null){
             const darkMode = await this.getDarkModePreference().then(result => {return result});
-            console.log("inMount: "+darkMode);
-            console.log("inMount: "+typeof(darkMode));
 
             if(darkMode === null || darkMode === undefined) {
                 // value was not set. initialize to light mode
@@ -26,14 +24,12 @@ class DarkMode extends React.Component {
             } else if(darkMode === "lightMode"){
                 this.setDataTheme('light');
             } else {
-                console.log("error state: "+darkMode);
                 this.setDataTheme('light');
                 this.setDarkModePreference("lightMode");
             }
         }
         let buttonCheckmarked = false;
         if(this.theme === 'dark'){
-            console.log("dark mode value found");
             document.getElementById("DarkModeToggleSwitch").checked=true;
         } else {
             document.getElementById("DarkModeToggleSwitch").checked=false;
@@ -59,11 +55,8 @@ class DarkMode extends React.Component {
     }
     async getDarkModePreference() {
         let darkMode = await Preferences.get({key: this.DARK_MODE_CHOICE});
-        console.log("darMode: "+darkMode);
         if(darkMode !== undefined && darkMode !== null){
             darkMode = darkMode.value;
-            console.log("darkMode: "+darkMode);
-            console.log(typeof(darkMode));
             if(darkMode === "darkMode"){
                 return "darkMode";
             } else if(darkMode === "lightMode") {
@@ -89,7 +82,6 @@ class DarkMode extends React.Component {
         } else {
             this.setLightMode();
         }
-        console.log(this.getDarkModePreference());   
     }
     
     //handling intial setting of dark mode on loading app

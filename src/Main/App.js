@@ -11,9 +11,9 @@ import Opinion from '../components/screens/opinion';
 import Footer from '../components/Hooks/Constants/footer';
 import Header from '../components/Hooks/Constants/header';
 import SplashScreen from '../components/screens/splash/splashScreen'; // Import the SplashScreen component
-import SearchResults from '../components/screens/searchResults';
-import FullArticle from '../components/screens/fullArticleViewer';
-import SearchedArticle from '../components/screens/searchedArticle';
+import SearchResults from '../components/Hooks/Search/searchResults';
+import FullArticle from '../components/Hooks/Search/fullArticleViewer';
+import SearchedArticle from '../components/Hooks/Search/searchedArticle';
 
 const App = () => {
     const [showSplash, setShowSplash] = useState(true);

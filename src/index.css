@@ -6,6 +6,7 @@
     --footer_header_text_color: #FFFFFF;
     --article_container_background: #FFFFFF;
     --app_heading_color:var(--app_text_color);
+    --color_not_in_container: var(--footer_header_text_color);
 
     --splash_screen_color:#3c4142; /*charcoal grey*/
 }
@@ -13,8 +14,9 @@
 /*dark mode variables*/
 [data-theme = "dark"] {
     --app_background_color: #002144;
-    --app_text_color: #FFFFFF;
+    --app_text_color: #333;
     --article_container_background: #C9C8C7;
+    --color_not_int_container: #FFFFFF;
 
     --footer_header_background_color: #3c4142;
     --footer_header_text_color:  #FFFFFF;;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './searchBar.css'; // Import CSS file for styling
-import SearchResults from '../../screens/searchResults'; // Import the SearchResults component
+import SearchResults from './searchResults'; // Import the SearchResults component
 import searchIcon from '../../../icons/SearchIcon.png'; // Import the search icon image
 import { useNavigate } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 const PossibleArticles = ({ articles, onClick }) => (
   <div className="possible-articles">
     {articles.map((article) => (
-      <div key={article.id} className="article" onClick={() => onClick(article.id)} style={{color:'navy'}}>
+      <div key={article.id} className="article" onClick={() => onClick(article.id)} style={{color:"var(--app_text_color)"}}>
         {article.title.rendered}
       </div>
     ))}
@@ -112,14 +112,6 @@ const SearchBar = ({ onSearch }) => {
         <PossibleArticles articles={possibleArticles} onClick={handleClick} />
       )}
       
-      {/*
-      {selectedPost && (
-        <div className="selected-post">
-          <h2>{selectedPost.title.rendered}</h2>
-          <div dangerouslySetInnerHTML={{ __html: selectedPost.content.rendered }} />
-        </div>
-      )}
-    */}
       <SearchResults results={searchResults} handleReadMore={handleReadMore} />
     </div>
   );

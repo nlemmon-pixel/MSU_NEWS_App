@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-import { fetchArticleById } from '../Hooks/DataHandling/ArticleFetcher.js';
+import { fetchArticleById } from '../DataHandling/ArticleFetcher.js';
 
 const SearchResults = ({ results }) => {
   const [selectedPost, setSelectedPost] = useState(null);

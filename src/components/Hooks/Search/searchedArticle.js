@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useLocation, useNavigate} from 'react-router-dom';
-import {fetchArticleById} from '../Hooks/DataHandling/ArticleFetcher';
+import {fetchArticleById} from '../DataHandling/ArticleFetcher';
+import '../DataHandling/ArticleFetcherStyles.css';
 
 const SearchedArticle = () => {
     const [articleInfo, setArticleInfo] = useState(null);
@@ -23,7 +24,7 @@ const SearchedArticle = () => {
                         <img src={articleInfo._embedded["wp:featuredmedia"][0].source_url} alt={articleInfo.title.rendered} className="articleImage" />
                     )}
                     <div className="articleContent" dangerouslySetInnerHTML={{ __html: articleInfo.content.rendered }}></div>
-                    <button className="backButton" onClick={() => {setArticleInfo(null); navigate("/")}}>Back</button>
+                    <button className="backButton" onClick={() => {setArticleInfo(null); navigate("/")}}>Home</button>
                 </div>
             );
         } else {

@@ -18,19 +18,8 @@
 }
   
 .articleExcerpt {
-  color: #333; /* Dark gray */
+  color:  var(--app_text_color); /* Dark gray */
   line-height:1.15;
-}
-  
-.articleLink {
-  color: blue;
-  background-color: var(--article_container_background);
-  text-decoration: none;
-  border:0;
-}
-  
-.articleLink:hover {
-  text-decoration: underline;
 }
 
 .articleImage {
@@ -39,6 +28,7 @@
 }
 
 .articleContainer *{
+  color:  var(--app_text_color);
   max-width: 80vw;
   object-fit:contain;
   height: fit-content;
@@ -51,17 +41,38 @@
   align-content: center;
 }
 */
+.articleLink {
+  color: blue;
+  background-color: var(--article_container_background);
+  text-decoration: none;
+  border:0;
+}
+  
+.articleLink:hover {
+  text-decoration: underline;
+}
+
+.backButton{
+  color: blue;
+  background-color: var(--article_container_background);
+  text-decoration: none;
+  border:0;
+}
+
+.backButton:hover{
+  text-decoration: underline;
+}
 
 .adSpace {
   border: 1px solid #002144;
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 20px;
-  background-color: #002144; /* Light gray background */
+  background-color: var(--article_container_background); /* Light gray background */
   /*max-width: 600px; /* Set a maximum width */
   width:fit-content;
   margin-left: auto; /* Center the container horizontally */
   margin-right: auto; /* Center the container horizontally */
-  color:gold;
+  color:var(--app_heading_color);
 }
 

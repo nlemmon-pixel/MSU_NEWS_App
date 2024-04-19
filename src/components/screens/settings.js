@@ -1,6 +1,8 @@
 // Settings.js
 import React from "react";
 import DarkMode from "../Hooks/DarkModeHandling/darkMode";
+import './settings.css';
+
 const Settings = () => {
     return (
         <div className="App">
