@@ -12,7 +12,6 @@ import Footer from '../components/Hooks/Constants/footer';
 import Header from '../components/Hooks/Constants/header';
 import SplashScreen from '../components/screens/splash/splashScreen'; // Import the SplashScreen component
 import SearchResults from '../components/Hooks/Search/searchResults';
-import FullArticle from '../components/Hooks/Search/fullArticleViewer';
 import SearchedArticle from '../components/Hooks/Search/searchedArticle';
 
 const App = () => {
@@ -45,9 +44,7 @@ const App = () => {
                         <Route exact path="/athletics" element={<Athletics />} />
                         <Route exact path="/Features" element={<Features />} />
                         <Route exact path="/Opinion" element={<Opinion />} />
-                        {/*<Route exact path="/search/:query" element={<SearchResults />} />*/}
                         <Route exact path="/search" element={<SearchResults />} />
-                        <Route exact path="/article/:id" element={<FullArticle />} />
                         <Route exact path="/searchedArticle" element={<SearchedArticle />} />
                     </Routes>
                     </div>
