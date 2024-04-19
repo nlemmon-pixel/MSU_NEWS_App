@@ -16,7 +16,7 @@ const PossibleArticles = ({ articles, onClick }) => (
   </div>
 );
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [selectedPost, setSelectedPost] = useState(null);
@@ -43,7 +43,7 @@ const SearchBar = ({ onSearch }) => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
-
+/*
   const handleSearch = async (query) => {
     try {
       const response = await axios.get(`https://murraystatenews.org/wp-json/wp/v2/posts?search=${query}`);
@@ -53,7 +53,7 @@ const SearchBar = ({ onSearch }) => {
       setError(error.message);
     }
   };
-
+*/
   const handleChange = async (event) => {
     const query = event.target.value;
     setSearchTerm(query);
@@ -66,9 +66,12 @@ const SearchBar = ({ onSearch }) => {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    handleSearch(searchTerm);
+    
+    //const response = await axios.get(`https://murraystatenews.org/wp-json/wp/v2/posts?search=${searchTerm}`);
+    navigate('/search', {state:{searchResults: possibleArticles}});
+    //handleSearch(searchTerm);
   };
   
   const handleClick =  (postId) => { 
@@ -112,7 +115,7 @@ const SearchBar = ({ onSearch }) => {
         <PossibleArticles articles={possibleArticles} onClick={handleClick} />
       )}
       
-      <SearchResults results={searchResults} handleReadMore={handleReadMore} />
+      {/*<SearchResults results={searchResults} handleReadMore={handleReadMore} />*/}
     </div>
   );
 };

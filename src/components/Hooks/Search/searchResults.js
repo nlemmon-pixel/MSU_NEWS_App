@@ -1,40 +1,45 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-import { fetchArticleById } from '../DataHandling/ArticleFetcher.js';
+import React, {useState, useEffect} from 'react';
+import {useLocation, useNavigate} from 'react-router-dom';
+import "../DataHandling/ArticleFetcherStyles.css";
 
-const SearchResults = ({ results }) => {
-  const [selectedPost, setSelectedPost] = useState(null);
-  const [error, setError] = useState(null);
+const SearchResults = () => {
+  const [articleInfo, setArticleInfo] = useState(null);
+  const navigate = useNavigate(); 
+  const location = useLocation();
+  const passedArticles = location?.state;
 
-  const handleReadMore = async (articleId) => {
-    try {
-      const articleData = await fetchArticleById(articleId);
-      setSelectedPost(articleData);
-    } catch (error) {
-      setError(error.message);
+  useEffect(()=>{
+    if(passedArticles !== undefined && passedArticles !== null){
+      setArticleInfo(passedArticles.searchResults);
     }
-  };
+  }, [!location.pathname, location?.state?.searchResults])
 
-  return (
-    <div>
-      {results.map((result) => (
-        <div key={result.id} className="articleContainer">
-          <h3 className="articleHeading">{result.title.rendered}</h3>
-          <p className="articleExcerpt" dangerouslySetInnerHTML={{ __html: result.excerpt.rendered }} />
-          {/* Use Link component to navigate to full article */}
-          <Link to={`/article/${result.id}`} className="articleLink">Read More</Link>
-          <hr />
-        </div>
-      ))}
-      {selectedPost && (
-        <div className="selected-post">
-          <h2>{selectedPost.title.rendered}</h2>
-          <div dangerouslySetInnerHTML={{ __html: selectedPost.content.rendered }} />
-        </div>
-      )}
-      {error && <p className="error-message">Error: {error}</p>}
+  const handleReadMore = (id) => {
+    navigate("/searchedArticle", {state:{articleId: id}});
+  }
+
+  const articlesDisplay = () => {
+    if(articleInfo !== null && articleInfo !== undefined && articleInfo.length > 0){
+      var displayedContent = articleInfo.map((article)=>{
+        return(
+          <div key={article.id} className="articleContainer">
+            <h3 className="articleHeading" dangerouslySetInnerHTML={{__html: article.title.rendered}}></h3>
+            <p className="articleExcerpt" dangerouslySetInnerHTML={{ __html: article.excerpt.rendered }} />
+
+            <button className="articleLink" onClick={() => handleReadMore(article.id)}>Read More</button>
+          </div>
+        );
+      })
+    return(displayedContent);
+    } else {
+      return (<div>No Search Results</div>);
+    }
+  }
+  return(
+    <div id="searched-article-container">
+      {articlesDisplay()}
     </div>
   );
-};
+}
 
 export default SearchResults;
