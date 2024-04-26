@@ -63,7 +63,7 @@ const SearchBar = () => {
   const handleClick =  (postId) => { 
       setPossibleArticles([]);
       setSearchTerm('');
-      if(postId != null && postId != undefined){
+      if(postId !== null && postId !== undefined){
         navigate("/searchedArticle", {state:{articleId: postId}});
       }
   };
