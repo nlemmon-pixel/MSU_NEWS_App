@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './searchBar.css'; // Import CSS file for styling
-import searchIcon from '../../../icons/SearchIcon.png'; // Import the search icon image
+import searchIcon from '../../../icons/whiteSearch2.png'; // Import the search icon image
 import { useNavigate } from 'react-router-dom';
-
 
 const PossibleArticles = ({ articles, onClick }) => (
   <div className="possible-articles">
@@ -15,21 +14,20 @@ const PossibleArticles = ({ articles, onClick }) => (
   </div>
 );
 
-const SearchBar = () => {
+const SearchBar = ({ onIconClick }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [possibleArticles, setPossibleArticles] = useState([]);
   const [error, setError] = useState(null);
-  const [isActive, setIsActive] = useState(false); // State to track if the search bar is active
+  const [isActive, setIsActive] = useState(false);
   const searchBarRef = useRef(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (searchBarRef.current && !searchBarRef.current.contains(event.target)) {
-        // Clicked outside the search bar, reset state
         setPossibleArticles([]);
         setSearchTerm('');
-        setIsActive(false); // Deactivate the search bar when clicked outside
+        setIsActive(false);
       }
     };
 
@@ -53,11 +51,8 @@ const SearchBar = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    
-    //const response = await axios.get(`https://murraystatenews.org/wp-json/wp/v2/posts?search=${searchTerm}`);
     navigate('/search', {state:{searchResults: possibleArticles}});
     setPossibleArticles([]);
-    //handleSearch(searchTerm);
   };
   
   const handleClick =  (postId) => { 
@@ -69,7 +64,8 @@ const SearchBar = () => {
   };
 
   const toggleSearchBar = () => {
-    setIsActive(!isActive); // Toggle the active state of the search bar
+    setIsActive(!isActive);
+    onIconClick(); // Call the onIconClick function when the search icon is clicked
   };
 
   return (
