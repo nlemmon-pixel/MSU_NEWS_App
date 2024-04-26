@@ -1,35 +1,16 @@
 // Settings.js
 import React from "react";
-import { useTheme } from "./ThemeContext";
-import "./ThemeStyles.css"; // Import the CSS file for theme styles
+import DarkMode from "../Hooks/DarkModeHandling/darkMode";
+import './settings.css';
 
 const Settings = () => {
-    const { isDarkMode, toggleMode } = useTheme();
-
-    const handleToggle = () => {
-        toggleMode();
-    };
-
     return (
-        <div className={`App ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+        <div className="App">
             <header className="App-header">
                 <h1>Settings screen</h1>
             </header>
             <main>
-                <section>
-                    
-                </section>
-                <section>
-                    {/* Toggle switch for theme */}
-                    <label>
-                    <input
-                        type="checkbox"
-                        checked={isDarkMode}
-                        onChange={handleToggle}
-                    />
-                        Dark Mode
-                    </label>
-                </section>
+                <DarkMode />
             </main>
             <footer>
                 

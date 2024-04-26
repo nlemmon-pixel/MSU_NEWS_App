@@ -4,7 +4,7 @@
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 20px;
-  background-color: #f0f0f0; /* Light gray background */
+  background-color: var(--article_container_background); /*#f0f0f0; /* Light gray background */
   width: 90%; /* Set a maximum width */
   max-width:90%;
   margin-left: auto; /* Center the container horizontally */
@@ -13,21 +13,13 @@
 
   
 .articleHeading {
-  color: #002144;
+  color: var(--app_heading_color); /*#002144;*/
   font-size: 1.5rem;
 }
   
 .articleExcerpt {
-  color: #333; /* Dark gray */
-}
-  
-.articleLink {
-  color: blue;
-  text-decoration: none;
-}
-  
-.articleLink:hover {
-  text-decoration: underline;
+  color:  var(--app_text_color); /* Dark gray */
+  line-height:1.15;
 }
 
 .articleImage {
@@ -36,6 +28,7 @@
 }
 
 .articleContainer *{
+  color:  var(--app_text_color);
   max-width: 80vw;
   object-fit:contain;
   height: fit-content;
@@ -48,17 +41,38 @@
   align-content: center;
 }
 */
+.articleLink {
+  color: blue;
+  background-color: var(--article_container_background);
+  text-decoration: none;
+  border:0;
+}
+  
+.articleLink:hover {
+  text-decoration: underline;
+}
+
+.backButton{
+  color: blue;
+  background-color: var(--article_container_background);
+  text-decoration: none;
+  border:0;
+}
+
+.backButton:hover{
+  text-decoration: underline;
+}
 
 .adSpace {
   border: 1px solid #002144;
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 20px;
-  background-color: #002144; /* Light gray background */
+  background-color: var(--article_container_background); /* Light gray background */
   /*max-width: 600px; /* Set a maximum width */
   width:fit-content;
   margin-left: auto; /* Center the container horizontally */
   margin-right: auto; /* Center the container horizontally */
-  color:gold;
+  color:var(--app_heading_color);
 }
 

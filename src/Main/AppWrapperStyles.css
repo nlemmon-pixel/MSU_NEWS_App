@@ -1,27 +1,9 @@
-/*
-.page-container{
-    background-color:#002144;
-    display:flex;
-    flex-direction:column;
-    align-items: center;
+#page-container{
+    background-color:var(--app_background_color);
+    color:var(--app_text_color);
 }
-.main-page-content{
-    flex: 1 1 auto;
+
+#main-page-content{
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
-.App{
-    min-height:100vh;
-    min-width:100vw;
-    flex:inherit;
-}
-/*
-#Header{
-    top:0;
-    position:sticky;
-    flex: 0 0 auto;
-}
-#Footer{
-    bottom:0;
-    position:sticky;
-    flex: 0 0 auto;
-}
-*/

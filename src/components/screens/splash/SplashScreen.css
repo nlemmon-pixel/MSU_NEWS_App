@@ -2,7 +2,7 @@
 .splash-screen {
   width: 100vw;
   height: 100vh;
-  background-color: #fff; /* Background color of the splash screen */
+  background-color: var(--splash_screen_color); /* Background color of the splash screen */
 }
 
 .splash-logo {
