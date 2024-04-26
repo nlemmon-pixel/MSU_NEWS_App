@@ -13,6 +13,7 @@ import Header from '../components/Hooks/Constants/header';
 import SplashScreen from '../components/screens/splash/splashScreen'; // Import the SplashScreen component
 import SearchResults from '../components/Hooks/Search/searchResults';
 import SearchedArticle from '../components/Hooks/Search/searchedArticle';
+import DarkMode from '../components/Hooks/DarkModeHandling/darkMode';
 
 const App = () => {
     const [showSplash, setShowSplash] = useState(true);
@@ -29,6 +30,7 @@ const App = () => {
 
     return (
         <div id="page-container" style={{display:"flex", minHeight:"100vh", Width:"100vw", flexDirection:"column"}}>
+            <div style={{display:"none"}}><DarkMode/></div>
             {showSplash ? (
                 // Render the SplashScreen component if showSplash is true
                 <SplashScreen />

@@ -10,7 +10,7 @@ class DarkMode extends React.Component {
         super(props);
     }
     async componentDidMount() {
-        if(document.querySelector("body").getAttribute('data-theme') == null){
+        if(document.querySelector("body")?.getAttribute('data-theme') == undefined || document.querySelector("body")?.getAttribute('data-theme') == null){
             const darkMode = await this.getDarkModePreference().then(result => {return result});
 
             if(darkMode === null || darkMode === undefined) {
@@ -36,7 +36,7 @@ class DarkMode extends React.Component {
         }
     }
     componentDidUpdate(prevProps) {
-        if(this.props.theme !== prevProps.props.theme){
+        if(document.querySelector("body")?.getAttribute('data-theme') == undefined || this.props.theme !== prevProps.props?.theme){
             this.fetchData(this.props.theme);
         }
     }
