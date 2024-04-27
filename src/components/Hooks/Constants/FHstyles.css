@@ -29,7 +29,7 @@
   font-size: 1.2rem; /* Reduce font size */
   margin: 0;
   max-width: 100%;
-  max-height: 30px; /* Reduce height */
+  height: 60px;
   object-fit: contain;
 }
 

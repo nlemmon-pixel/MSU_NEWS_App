@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './searchBar.css'; // Import CSS file for styling
-import searchIcon from '../../../icons/whiteSearch2.png'; // Import the search icon image
+import searchIcon from '../../../icons/whiteSearchIcon.png'; // Import the search icon image
 import { useNavigate } from 'react-router-dom';
 
 const PossibleArticles = ({ articles, onClick }) => (
@@ -78,9 +78,10 @@ const SearchBar = ({ onIconClick }) => {
             onChange={handleChange}
             placeholder="Search..."
             className={`search-input ${isActive ? 'active' : ''}`}
+            name="searchBar"
           />
         </form>
-          <img src={searchIcon} alt="Search" className="search-icon" onClick={toggleSearchBar}/>
+          <img src={searchIcon} alt="Search" className="search-icon" onClick={toggleSearchBar} width="64px" height="64px" style={{padding:"8px"}}/>
       </div>
       {error && <p className="error-message">Error: {error}</p>}
       {possibleArticles.length > 0 && (

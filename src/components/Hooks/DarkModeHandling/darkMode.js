@@ -1,19 +1,19 @@
-import React, {useEffect, useState, setState} from "react";
+import React from "react";
 import "./darkMode.css";
 import { Preferences } from '@capacitor/preferences';
 
 class DarkMode extends React.Component {
-    DARK_MODE_CHOICE = 'darkModeChoice';
-    theme = null;
 
     constructor(props){
         super(props);
+        this.DARK_MODE_CHOICE = 'darkModeChoice';
+        this.theme = null;
     }
     async componentDidMount() {
-        if(document.querySelector("body")?.getAttribute('data-theme') == undefined || document.querySelector("body")?.getAttribute('data-theme') == null){
+        if(document.querySelector("body")?.getAttribute('data-theme') === undefined || document.querySelector("body")?.getAttribute('data-theme') === null){
             const darkMode = await this.getDarkModePreference().then(result => {return result});
 
-            if(darkMode === null || darkMode === undefined) {
+            if(darkMode === undefined || darkMode === null) {
                 // value was not set. initialize to light mode
                 this.setDataTheme('light');
                 this.setDarkModePreference("lightMode");
@@ -28,15 +28,19 @@ class DarkMode extends React.Component {
                 this.setDarkModePreference("lightMode");
             }
         }
-        let buttonCheckmarked = false;
-        if(this.theme === 'dark'){
-            document.getElementById("DarkModeToggleSwitch").checked=true;
+
+        if(this.theme === 'dark' || document.querySelector("body")?.getAttribute('data-theme') === 'dark'){
+            for(var i = 0; i< document.getElementsByClassName("DarkModeToggleSwitch").length; i++){
+                document.getElementsByClassName("DarkModeToggleSwitch")[i].checked = true;
+            }
         } else {
-            document.getElementById("DarkModeToggleSwitch").checked=false;
+            for(var j = 0; j< document.getElementsByClassName("DarkModeToggleSwitch").length; j++){
+                document.getElementsByClassName("DarkModeToggleSwitch")[j].checked = false;
+            }
         }
     }
     componentDidUpdate(prevProps) {
-        if(document.querySelector("body")?.getAttribute('data-theme') == undefined || this.props.theme !== prevProps.props?.theme){
+        if(document.querySelector("body")?.getAttribute('data-theme') === undefined || this.props.theme !== prevProps.props?.theme){
             this.fetchData(this.props.theme);
         }
     }
@@ -89,16 +93,15 @@ class DarkMode extends React.Component {
     render(){
         return(
             <div className = "DarkModeToggle">
-                {/*
-                {console.log(this.theme==='dark')}
-                {console.log(this.theme)}
-                */}
-                <input 
-                    id="DarkModeToggleSwitch" 
-                    type="checkbox"
-                    defaultChecked={(this.theme === 'dark') ?  true : false}
-                    onChange={this.toggleTheme}/>
-                <label>Dark Mode</label>
+                <label>
+                    <input 
+                        className="DarkModeToggleSwitch" 
+                        name="DarkModeToggleSwitch"
+                        type="checkbox"
+                        defaultChecked={(this.theme === 'dark') ?  true : false}
+                        onChange={this.toggleTheme}/>
+                    Dark Mode
+                </label>
             </div>
         );
     }
