@@ -119,7 +119,7 @@ export const Top10OfCategory = (props) =>
         <div>
             {selectedArticle ? (
                 <div className="readMore">
-                    <h3 className="articleHeading">{selectedArticle.title.rendered}</h3>
+                    <h3 className="articleHeading" dangerouslySetInnerHTML={{ __html: selectedArticle.title.rendered}}></h3>
                     {selectedArticle._embedded && selectedArticle._embedded["wp:featuredmedia"] && (
                         <img src={selectedArticle._embedded["wp:featuredmedia"][0].source_url} alt={selectedArticle.title.rendered} className="articleImage" />
                     )}
@@ -128,32 +128,21 @@ export const Top10OfCategory = (props) =>
                 </div>
 
             ) : (
-                articles.map((article, index) => {
-                    let dataToDisplay = "";
-                   
-                    if(article.categories.indexOf(11373) > -1){ //photo galleries
-                        dataToDisplay = <div key={index} className={`preView ${index===0 ? "firstPreView" : ""}`}><h3 className="articleHeading">{article.title.rendered}</h3></div>
-                    } else if (article.categories.indexOf(5122) > -1) { // videos
-                        dataToDisplay = <div key={index} className={`preView ${index===0 ? "firstPreView" : ""}`}><h3 className="articleHeading">{article.title.rendered}</h3></div>
-                    } else if (article.categories.indexOf(11380) > -1) { // Audio
-                        dataToDisplay = <div key={index} className={`preView ${index===0 ? "firstPreView" : ""}`}><h3 className="articleHeading">{article.title.rendered}</h3></div>
-                    } else {
-                        dataToDisplay = 
-                        <div>
-                        <div>{getAd(index)}</div>
-                            <div key={index} className={`preView ${index===0 ? "firstPreView" : ""}`}>
-                                {article._embedded && article._embedded["wp:featuredmedia"] && (
-                                    <img src={article._embedded["wp:featuredmedia"][0].source_url} alt={article.title.rendered} className="articleImage" />
-                                )}
+                articles.map((article, index) => (
+                <div>
+                    <div>{getAd(index)}</div>
+                        <div key={index} className={`preView ${index===0 ? "firstPreView" : ""}`}>
+                            {article._embedded && article._embedded["wp:featuredmedia"] && (
+                                <img src={article._embedded["wp:featuredmedia"][0].source_url} alt={article.title.rendered} className="articleImage" />
+                            )}
+                            <div className="preViewInfo">
                                 <h3 className="articleHeading" dangerouslySetInnerHTML={{ __html: article.title.rendered }}/>
                                 <button className="articleLink" onClick={() => handleReadMore(article.id)}>Read More</button>
-                                <hr/>
                             </div>
-                        </div>;
-                   }
-                   return dataToDisplay;
-
-            })
+                            <hr/>
+                        </div>
+                    </div>
+                ))
             )}
         </div>
     );

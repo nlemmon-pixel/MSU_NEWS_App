@@ -4,7 +4,8 @@
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 20px;
-  background-color: var(--article_container_background); /*#f0f0f0; /* Light gray background */
+  background-color: var(--article_container_background); 
+  color: var(--app_text_color);
   width: 90%; /* Set a maximum width */
   max-width:90%;
   margin-left: auto; /* Center the container horizontally */
@@ -31,7 +32,9 @@
 
 .preView .articleHeading {
   color: var(--app_heading_color); /* Dark blue */
-  font-size: 1.125rem; /* 3/4 of the current size (1.5rem) */
+  /*font-size: 1.125rem; /* 3/4 of the current size (1.5rem) */
+  font-size:12pt;
+  font-weight:bold;
   margin-top: 0; /* Reset margin */
   flex: 1; /* Allow the title to grow to fill available space */
 }
@@ -51,7 +54,12 @@
   max-width: 100%; /* Ensure image doesn't exceed container width */
   height: auto; /* Maintain aspect ratio */
 }
-
+.preViewInfo{
+  display: flex;
+  flex-direction: column;
+  font-size:12pt;
+  font-weight: bold;
+}
 .firstPreView {
   /*INSERT SPECIAL FORMATTING HERE*/
   color: var(--article_container_background);

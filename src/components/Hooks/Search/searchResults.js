@@ -24,7 +24,6 @@ const SearchResults = () => {
         return(
           <div key={article.id} className="preView">
             <h3 className="articleHeading" dangerouslySetInnerHTML={{__html: article.title.rendered}}></h3>
-            <p className="articleExcerpt" dangerouslySetInnerHTML={{ __html: article.excerpt.rendered }} />
 
             <button className="articleLink" onClick={() => handleReadMore(article.id)}>Read More</button>
           </div>
