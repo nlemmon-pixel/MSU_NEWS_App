@@ -22,7 +22,7 @@ const SearchResults = () => {
     if(articleInfo !== null && articleInfo !== undefined && articleInfo.length > 0){
       var displayedContent = articleInfo.map((article)=>{
         return(
-          <div key={article.id} className="articleContainer">
+          <div key={article.id} className="preView">
             <h3 className="articleHeading" dangerouslySetInnerHTML={{__html: article.title.rendered}}></h3>
             <p className="articleExcerpt" dangerouslySetInnerHTML={{ __html: article.excerpt.rendered }} />
 

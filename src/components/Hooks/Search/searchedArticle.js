@@ -18,7 +18,7 @@ const SearchedArticle = () => {
     const articleDisplay = () =>{
         if(articleInfo !== null && articleInfo !== undefined){
             return(
-                <div>
+                <div className='readMore'>
                     <h3 className="articleHeading" dangerouslySetInnerHTML={{ __html: articleInfo.title.rendered }}></h3>
                     {articleInfo._embedded && articleInfo._embedded["wp:featuredmedia"] && (
                         <img src={articleInfo._embedded["wp:featuredmedia"][0].source_url} alt={articleInfo.title.rendered} className="articleImage" />
