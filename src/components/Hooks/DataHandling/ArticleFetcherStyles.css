@@ -65,14 +65,31 @@
   color: var(--article_container_background);
 }
 
-/*
-.articleContent img, .articleContent figcaption, .articleContent figure {
+
+.readMore img, .readMore figcaption, .readMore figure {
   max-width: 80vw;
   object-fit:contain;
   height:fit-content;
   align-content: center;
 }
-*/
+
+/*imported Photo gallaries. link removed in ArticleFetcher.js in removePhotosLinks()*/
+.modal-photo {
+  text-decoration: none;
+  color:var(--app_text_color);
+}
+.sfiphotowrap, .sfiphotowrap *{
+  margin:0px;
+  padding:0px;
+}
+
+
+
+.articleContent *{
+margin:0px;
+padding:0px;
+}
+
 .articleLink {
   color: blue;
   background-color: var(--article_container_background);
@@ -87,6 +104,8 @@
 }
 
 .backButton{
+  margin-top:5%;
+  display:block;
   color: blue;
   background-color: var(--article_container_background);
   text-decoration: none;

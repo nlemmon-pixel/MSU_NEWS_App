@@ -51,30 +51,6 @@ function getAd (index) {
     }
 }
 
-//TODO: implement these functions to handle things like photo galleries and videos
-function handlePhotos(){
-
-}
-
-function handleVideos(){
-
-}
-
-function handleAudio(){
-
-}
-
-export function handleMultimedia(passedMedia){
-    if(false){
-        handlePhotos();
-    } else if(false) {
-        handleVideos();
-    } else if(false){
-        handleAudio();
-    }else{
-        return passedMedia;
-    }
-}
 
 //Directly imported by components on the screens
 export const Top10OfCategory = (props) => 
@@ -114,17 +90,80 @@ export const Top10OfCategory = (props) =>
             console.error('Error fetching article data:', error);
         }
     };
-
-    return(
-        <div>
-            {selectedArticle ? (
-                <div className="readMore">
+    
+    function handlePhotos(){
+        return  <div>
                     <h3 className="articleHeading" dangerouslySetInnerHTML={{ __html: selectedArticle.title.rendered}}></h3>
                     {selectedArticle._embedded && selectedArticle._embedded["wp:featuredmedia"] && (
                         <img src={selectedArticle._embedded["wp:featuredmedia"][0].source_url} alt={selectedArticle.title.rendered} className="articleImage" />
                     )}
                     <div className="articleContent" dangerouslySetInnerHTML={{ __html: selectedArticle.content.rendered }}></div>
+                    <a href={selectedArticle.link}>See Photos</a>
                     <button className="backButton" onClick={() => setSelectedArticle(null)}>Back</button>
+                </div>;
+    }
+    const fixImportedMultimedia = () => {
+        setTimeout(()=>{
+            let links = document.getElementsByClassName("modal-photo");
+            for(var i=0; i<links.length; i++){
+                links[i].removeAttribute("href");
+            }
+
+            document.getElementById("storypageslideshow")?.removeAttribute("style");
+
+            let embededVideos = document.querySelectorAll("iframe");
+            for(var j=0; j<embededVideos.length; j++){
+                embededVideos[j].remove();
+            }
+        }, 25)
+    }
+    
+    function handleVideos(){
+        return  <div>
+                    <h3 className="articleHeading" dangerouslySetInnerHTML={{ __html: selectedArticle.title.rendered}}></h3>
+                    {selectedArticle._embedded && selectedArticle._embedded["wp:featuredmedia"] && (
+                        <img src={selectedArticle._embedded["wp:featuredmedia"][0].source_url} alt={selectedArticle.title.rendered} className="articleImage" />
+                    )}
+                    <div className="articleContent" dangerouslySetInnerHTML={{ __html: selectedArticle.content.rendered }}></div>
+                    <a href={selectedArticle.link}>Watch Video</a>
+                    <button className="backButton" onClick={() => setSelectedArticle(null)}>Back</button>
+                </div>;
+    }
+    
+    function handleAudio(){
+        return  <div>
+                    <h3 className="articleHeading" dangerouslySetInnerHTML={{ __html: selectedArticle.title.rendered}}></h3>
+                    {selectedArticle._embedded && selectedArticle._embedded["wp:featuredmedia"] && (
+                        <img src={selectedArticle._embedded["wp:featuredmedia"][0].source_url} alt={selectedArticle.title.rendered} className="articleImage" />
+                    )}
+                    <div className="articleContent" dangerouslySetInnerHTML={{ __html: selectedArticle.content.rendered }}></div>
+                    <a href={selectedArticle.link}>Listen to Audio</a>
+                    <button className="backButton" onClick={() => setSelectedArticle(null)}>Back</button>
+                </div>;
+    }
+
+    const handleMultimedia = () => {
+        if(selectedArticle.categories.indexOf(11373) > -1){
+            return handlePhotos();
+        } else if(selectedArticle.categories.indexOf(5122) > -1) {
+            return handleVideos();
+        } else if(selectedArticle.categories.indexOf(11380) > -1){
+            return handleAudio();
+        }else{
+            return <div><h3 className="articleHeading" dangerouslySetInnerHTML={{ __html: selectedArticle.title.rendered}}></h3>
+                    {selectedArticle._embedded && selectedArticle._embedded["wp:featuredmedia"] && (
+                        <img src={selectedArticle._embedded["wp:featuredmedia"][0].source_url} alt={selectedArticle.title.rendered} className="articleImage" />
+                    )}
+                    <div className="articleContent" dangerouslySetInnerHTML={{ __html: selectedArticle.content.rendered }}></div>
+                    <button className="backButton" onClick={() => setSelectedArticle(null)}>Back</button></div>;
+        }
+    }
+
+    return(
+        <div>
+            {selectedArticle ? (
+                <div className="readMore">
+                    {handleMultimedia()}
                 </div>
 
             ) : (
@@ -144,6 +183,7 @@ export const Top10OfCategory = (props) =>
                     </div>
                 ))
             )}
+            {fixImportedMultimedia()}
         </div>
     );
 }
