@@ -66,6 +66,7 @@ const SearchBar = ({ onIconClick }) => {
   const toggleSearchBar = () => {
     setIsActive(!isActive);
     onIconClick(); // Call the onIconClick function when the search icon is clicked
+    setPossibleArticles([]);
   };
 
   return (
