@@ -7,3 +7,7 @@
     margin-top: 5%;
     margin-bottom: 5%;
 }
+
+.copyright{
+    color:var(--color_not_in_container)
+}

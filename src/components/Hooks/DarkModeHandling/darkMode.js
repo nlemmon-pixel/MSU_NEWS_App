@@ -93,15 +93,16 @@ class DarkMode extends React.Component {
     render(){
         return(
             <div className = "DarkModeToggle">
-                <label>
+                <label className="toggle-switch">
                     <input 
                         className="DarkModeToggleSwitch" 
                         name="DarkModeToggleSwitch"
                         type="checkbox"
                         defaultChecked={(this.theme === 'dark') ?  true : false}
                         onChange={this.toggleTheme}/>
-                    Dark Mode
+                    <span className="slider round"></span>
                 </label>
+                <span className="toggle-label">Dark Mode</span>
             </div>
         );
     }

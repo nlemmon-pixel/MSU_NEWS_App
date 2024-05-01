@@ -9,7 +9,7 @@ const Help = () => {
        <main>
            
        </main>
-       <footer>
+       <footer className="copyright">
            &copy; 2024 The Murray State News
        </footer>
    </div>

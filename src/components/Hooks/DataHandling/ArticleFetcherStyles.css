@@ -2,7 +2,11 @@
 .readMore {
   border: 1px solid #002144;
   border-radius: 5px;
-  padding: 10px;
+  /*padding: 10px;*/
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom:10px;
+  padding-top:5px;
   margin-bottom: 20px;
   background-color: var(--article_container_background); 
   color: var(--app_text_color);
@@ -53,6 +57,8 @@
 .readMore .articleImage {
   max-width: 100%; /* Ensure image doesn't exceed container width */
   height: auto; /* Maintain aspect ratio */
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .preViewInfo{
   display: flex;
@@ -61,10 +67,22 @@
   font-weight: bold;
 }
 .firstPreView {
-  /*INSERT SPECIAL FORMATTING HERE*/
-  color: var(--article_container_background);
+  border: 1px solid var(--app_heading_color);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: var(--article_container_background); /* Light gray background */
+  width: 90%; /* Set a maximum width */
+  margin-left: auto; /* Center the container horizontally */
+  margin-right: auto; /* Center the container horizontally */
+  display:block;
+  object-fit:contain;
 }
-
+.firstPreView img {
+  object-fit:contain;
+  max-width: 100%;
+  height: auto;
+}
 
 .readMore img, .readMore figcaption, .readMore figure {
   max-width: 80vw;
@@ -89,6 +107,9 @@
 margin:0px;
 padding:0px;
 }
+.articleContent {
+  padding-bottom:10px;
+}
 
 .articleLink {
   color: blue;
@@ -104,12 +125,13 @@ padding:0px;
 }
 
 .backButton{
-  margin-top:5%;
+  padding-bottom:5px;
   display:block;
   color: blue;
   background-color: var(--article_container_background);
   text-decoration: none;
   border:0;
+  padding-left: 0px;
 }
 
 .backButton:hover{

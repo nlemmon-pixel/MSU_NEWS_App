@@ -84,6 +84,7 @@ const SearchedArticle = () => {
         if(articleInfo !== null && articleInfo !== undefined){
             return(
                 <div className='readMore'>
+                    <button className="backButton" onClick={() => {setArticleInfo(null); navigate("/")}}>Home</button>
                     {handleMultimedia()}
                     <button className="backButton" onClick={() => {setArticleInfo(null); navigate("/")}}>Home</button>
                     {fixImportedMultimedia()}

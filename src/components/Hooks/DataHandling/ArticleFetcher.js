@@ -48,6 +48,27 @@ export async function fetchSportsArticles() {
 function getAd (index) {
     if(index%5 === 0 && index !== 0){
         return (<div className="adSpace"> <h1>This is an Ad.</h1> </div>) //placeholder
+        /* 
+        //set adCategoryID to a static number 
+        //(view 'https://murraystatenews.org/wp-json/wp/v2/categories?per_page=100&page=1' 
+        //in a json editor to find the id, once ads are uploaded)
+        const adCategoryID; 
+        var randomAdNumber = Math.random(3)+1; //change the random parameter (3) to be the number of ads there are in the database (the +1 is necessary for future steps)
+
+        fetch('https://murraystatenews.org/wp-json/wp/v2/posts?&&categories=${adCategoryID}&&per_page=1&&page=${randomAdNumber}')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            return //the needed ad data
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+        */
     }
 }
 
@@ -70,9 +91,9 @@ export const TopArticlesOfCategory = (props) =>
         }
 
         if(props.CategoryID !== undefined && props.CategoryID !== ""){
-            URI_to_fetch = `https://murraystatenews.org/wp-json/wp/v2/posts?_embed&per_page=${numArticlesToFetch}&categories=${props.CategoryID}`;
+            URI_to_fetch = `https://murraystatenews.org/wp-json/wp/v2/posts?_embed&per_page=${numArticlesToFetch}&categories=${props.CategoryID}&page=1`;
         } else {
-            URI_to_fetch = `https://murraystatenews.org/wp-json/wp/v2/posts?_embed&per_page=${numArticlesToFetch}`;
+            URI_to_fetch = `https://murraystatenews.org/wp-json/wp/v2/posts?_embed&per_page=${numArticlesToFetch}&page=1`;
         }
 
 
@@ -102,6 +123,7 @@ export const TopArticlesOfCategory = (props) =>
     
     function handlePhotos(){
         return  <div>
+                    <button className="backButton" onClick={() => setSelectedArticle(null)}>Back</button>
                     <h3 className="articleHeading" dangerouslySetInnerHTML={{ __html: selectedArticle.title.rendered}}></h3>
                     {selectedArticle._embedded && selectedArticle._embedded["wp:featuredmedia"] && (
                         <img src={selectedArticle._embedded["wp:featuredmedia"][0].source_url} alt={selectedArticle.title.rendered} className="articleImage" />
@@ -129,6 +151,7 @@ export const TopArticlesOfCategory = (props) =>
     
     function handleVideos(){
         return  <div>
+                    <button className="backButton" onClick={() => setSelectedArticle(null)}>Back</button>
                     <h3 className="articleHeading" dangerouslySetInnerHTML={{ __html: selectedArticle.title.rendered}}></h3>
                     {selectedArticle._embedded && selectedArticle._embedded["wp:featuredmedia"] && (
                         <img src={selectedArticle._embedded["wp:featuredmedia"][0].source_url} alt={selectedArticle.title.rendered} className="articleImage" />
@@ -141,6 +164,7 @@ export const TopArticlesOfCategory = (props) =>
     
     function handleAudio(){
         return  <div>
+                    <button className="backButton" onClick={() => setSelectedArticle(null)}>Back</button>
                     <h3 className="articleHeading" dangerouslySetInnerHTML={{ __html: selectedArticle.title.rendered}}></h3>
                     {selectedArticle._embedded && selectedArticle._embedded["wp:featuredmedia"] && (
                         <img src={selectedArticle._embedded["wp:featuredmedia"][0].source_url} alt={selectedArticle.title.rendered} className="articleImage" />
@@ -159,7 +183,9 @@ export const TopArticlesOfCategory = (props) =>
         } else if(selectedArticle.categories.indexOf(11380) > -1){
             return handleAudio();
         }else{
-            return <div><h3 className="articleHeading" dangerouslySetInnerHTML={{ __html: selectedArticle.title.rendered}}></h3>
+            return <div>
+                    <button className="backButton" onClick={() => setSelectedArticle(null)}>Back</button>
+                    <h3 className="articleHeading" dangerouslySetInnerHTML={{ __html: selectedArticle.title.rendered}}></h3>
                     {selectedArticle._embedded && selectedArticle._embedded["wp:featuredmedia"] && (
                         <img src={selectedArticle._embedded["wp:featuredmedia"][0].source_url} alt={selectedArticle.title.rendered} className="articleImage" />
                     )}
@@ -179,7 +205,12 @@ export const TopArticlesOfCategory = (props) =>
                 articles.map((article, index) => (
                 <div>
                     <div>{getAd(index)}</div>
-                        <div key={index} className={`preView ${index===0 ? "firstPreView" : ""}`}>
+                        <div key={index} className={`${index%5===0 
+                            && !(article.categories.indexOf(11373) > -1) 
+                            && !(article.categories.indexOf(5122) > -1) 
+                            && !(article.categories.indexOf(11380) > -1) 
+                            ? "firstPreView" : "preView"}`}>
+
                             {article._embedded && article._embedded["wp:featuredmedia"] && (
                                 <img src={article._embedded["wp:featuredmedia"][0].source_url} alt={article.title.rendered} className="articleImage" />
                             )}

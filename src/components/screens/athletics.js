@@ -12,7 +12,7 @@ const Sports = () => {
                     <TopArticlesOfCategory CategoryID="3"/>
                 </section>
             </main>
-            <footer>
+            <footer className="copyright">
                 &copy; 2024 The Murray State News
             </footer>
         </div>

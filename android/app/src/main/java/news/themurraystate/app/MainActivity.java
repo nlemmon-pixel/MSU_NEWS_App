@@ -1,4 +1,4 @@
-package com.example.app;
+package news.themurraystate.app;
 
 import com.getcapacitor.BridgeActivity;
 

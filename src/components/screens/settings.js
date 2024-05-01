@@ -5,16 +5,17 @@ import './settings.css';
 
 const Settings = () => {
     return (
-        <div className="App">
+        <div className="App settings">
             <header className="App-header">
-                <h1>Settings screen</h1>
+                <h1>Setting</h1>
             </header>
             <main>
-                <DarkMode />
+                <div className="settings-menu-container">
+                    <div className="settings-object">
+                        <DarkMode />
+                    </div>
+                </div>
             </main>
-            <footer>
-                
-            </footer>
         </div>
     );
 }

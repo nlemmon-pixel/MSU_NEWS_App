@@ -30,7 +30,7 @@ const Footer = () => {
             </div> 
             <div className="navButton" onClick={() => navigate('/settings')}>
                 <img src={IconMore} alt="Settings"/>
-                <div className="navButtonTitle">Settings</div>
+                <div className="navButtonTitle">Setting</div>
             </div>
         </nav>
     );
