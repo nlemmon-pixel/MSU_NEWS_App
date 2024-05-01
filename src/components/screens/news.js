@@ -1,5 +1,5 @@
 import React from "react";
-import {Top10OfCategory} from "../Hooks/DataHandling/ArticleFetcher.js";
+import {TopArticlesOfCategory} from "../Hooks/DataHandling/ArticleFetcher.js";
 
 const News = () => {
     return(
@@ -8,10 +8,10 @@ const News = () => {
            <h1>Breaking News</h1>
        </header>
        <main>
-           <Top10OfCategory CategoryID = "3530"/>
+           <TopArticlesOfCategory CategoryID = "3530"/>
        </main>
        <footer>
-           &copy; 2024 Your News App. All rights reserved.
+           &copy; 2024 The Murray State News
        </footer>
    </div>
     );

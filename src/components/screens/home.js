@@ -1,5 +1,5 @@
 import React from "react";
-import {Top10OfCategory} from "../Hooks/DataHandling/ArticleFetcher";
+import {TopArticlesOfCategory} from "../Hooks/DataHandling/ArticleFetcher";
 import "../Hooks/Constants/FHstyles.css";
 
 const Home = () => {
@@ -10,11 +10,11 @@ const Home = () => {
             </header >
             <main>
                 <section>
-                    <Top10OfCategory CategoryID = ""/>
+                    <TopArticlesOfCategory CategoryID = "" numArticles="20"/>
                 </section>
             </main>
             <footer>
-                &copy; 2024 Your News App. All rights reserved.
+                &copy; 2024 The Murray State News
             </footer>
         </div>
     );

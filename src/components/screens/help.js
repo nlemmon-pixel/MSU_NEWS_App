@@ -10,7 +10,7 @@ const Help = () => {
            
        </main>
        <footer>
-           &copy; 2024 Your News App. All rights reserved.
+           &copy; 2024 The Murray State News
        </footer>
    </div>
     );

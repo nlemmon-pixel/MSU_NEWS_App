@@ -53,7 +53,7 @@ function getAd (index) {
 
 
 //Directly imported by components on the screens
-export const Top10OfCategory = (props) => 
+export const TopArticlesOfCategory = (props) => 
 {
     const [articles, setArticles] = useState([]);
     const [selectedArticle, setSelectedArticle] = useState(null);
@@ -61,11 +61,20 @@ export const Top10OfCategory = (props) =>
     useEffect(() => {
         fetchArticles()
         var URI_to_fetch;
-        if(props.CategoryID !== ""){
-            URI_to_fetch = `https://murraystatenews.org/wp-json/wp/v2/posts?_embed&per_page=10&categories=${props.CategoryID}`;
+        var numArticlesToFetch;
+        
+        if(props.numArticles !== undefined && props.numArticles !== ""){
+            numArticlesToFetch = props.numArticles;
         } else {
-            URI_to_fetch = "https://murraystatenews.org/wp-json/wp/v2/posts?_embed&per_page=10";
+            numArticlesToFetch = 10;
         }
+
+        if(props.CategoryID !== undefined && props.CategoryID !== ""){
+            URI_to_fetch = `https://murraystatenews.org/wp-json/wp/v2/posts?_embed&per_page=${numArticlesToFetch}&categories=${props.CategoryID}`;
+        } else {
+            URI_to_fetch = `https://murraystatenews.org/wp-json/wp/v2/posts?_embed&per_page=${numArticlesToFetch}`;
+        }
+
 
         fetch(URI_to_fetch)
         .then(response => {

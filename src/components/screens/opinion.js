@@ -1,5 +1,5 @@
 import React from "react";
-import {Top10OfCategory} from "../Hooks/DataHandling/ArticleFetcher"; 
+import {TopArticlesOfCategory} from "../Hooks/DataHandling/ArticleFetcher"; 
 
 const Opinion = () => {
 
@@ -9,11 +9,11 @@ const Opinion = () => {
             </header>
             <main>
                 <section>
-                    <Top10OfCategory CategoryID="6"/>
+                    <TopArticlesOfCategory CategoryID="6"/>
                 </section>
             </main>
             <footer>
-                &copy; 2024 Your News App. All rights reserved.
+                &copy; 2024 The Murray State News
             </footer>
         </div>
     );  
