@@ -1,0 +1,83 @@
+/* searchBar.css */
+
+.search-bar-container {
+  top: 0;
+  width: fit-content;
+  position: relative; /* Add position relative */
+}
+
+.search-bar {
+  position: relative;
+  display: inline;
+}
+
+.search-input {
+  width: 0;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+  outline: none;
+  opacity: 0;
+  display: inline;
+}
+
+.search-input.active {
+  width: 220px; /* Adjusted to 80% of the container */
+  opacity: 1;
+}
+
+.search-icon {
+  padding: 8px 10px;
+  cursor: pointer;
+  display: inline;
+}
+
+.error-message {
+  color: red;
+}
+
+.possible-articles {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.article {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.article:hover {
+  background-color: #f0f0f0;
+}
+
+.selected-post {
+  margin-top: 20px;
+}
+
+.search-results {
+  list-style-type: none;
+  padding: 0;
+}
+
+.search-result {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-result h3 {
+  margin-top: 0;
+}
+
+.search-result:hover {
+  background-color: #f0f0f0;
+}

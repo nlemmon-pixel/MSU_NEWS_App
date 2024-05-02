@@ -1,0 +1,153 @@
+/* Top10Recent.css */
+.readMore {
+  border: 1px solid #002144;
+  border-radius: 5px;
+  /*padding: 10px;*/
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom:10px;
+  padding-top:5px;
+  margin-bottom: 20px;
+  background-color: var(--article_container_background); 
+  color: var(--app_text_color);
+  width: 90%; /* Set a maximum width */
+  max-width:90%;
+  margin-left: auto; /* Center the container horizontally */
+  margin-right: auto; /* Center the container horizontally */
+}
+
+.preView {
+  border: 1px solid #002144;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: var(--article_container_background); /* Light gray background */
+  width: 90%; /* Set a maximum width */
+  max-width: 800px; /* Adjust the maximum width as needed */
+  margin-left: auto; /* Center the container horizontally */
+  margin-right: auto; /* Center the container horizontally */
+  display: flex; /* Use flexbox for layout */
+}
+
+.readMore .articleHeading {
+  color: var(--app_heading_color); /*#002144;*/
+  font-size: 1.5rem;
+}
+
+.preView .articleHeading {
+  color: var(--app_heading_color); /* Dark blue */
+  /*font-size: 1.125rem; /* 3/4 of the current size (1.5rem) */
+  font-size:12pt;
+  font-weight:bold;
+  margin-top: 0; /* Reset margin */
+  flex: 1; /* Allow the title to grow to fill available space */
+}
+  
+.articleExcerpt {
+  color:  var(--app_text_color); /* Dark gray */
+  line-height:1.15;
+}
+
+.preView .articleImage {
+  max-width: 100px; /* Half of the current size */
+  height:fit-content;
+  margin-right: 20px; /* Add some space between the image and the text */
+}
+
+.readMore .articleImage {
+  max-width: 100%; /* Ensure image doesn't exceed container width */
+  height: auto; /* Maintain aspect ratio */
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.preViewInfo{
+  display: flex;
+  flex-direction: column;
+  font-size:12pt;
+  font-weight: bold;
+}
+.firstPreView {
+  border: 1px solid var(--app_heading_color);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: var(--article_container_background); /* Light gray background */
+  width: 90%; /* Set a maximum width */
+  margin-left: auto; /* Center the container horizontally */
+  margin-right: auto; /* Center the container horizontally */
+  display:block;
+  object-fit:contain;
+}
+.firstPreView img {
+  object-fit:contain;
+  max-width: 100%;
+  height: auto;
+}
+
+.readMore img, .readMore figcaption, .readMore figure {
+  max-width: 80vw;
+  object-fit:contain;
+  height:fit-content;
+  align-content: center;
+}
+
+/*imported Photo gallaries. link removed in ArticleFetcher.js in removePhotosLinks()*/
+.modal-photo {
+  text-decoration: none;
+  color:var(--app_text_color);
+}
+.sfiphotowrap, .sfiphotowrap *{
+  margin:0px;
+  padding:0px;
+}
+
+
+
+.articleContent *{
+margin:0px;
+padding:0px;
+}
+.articleContent {
+  padding-bottom:10px;
+}
+
+.articleLink {
+  color: blue;
+  background-color: var(--article_container_background);
+  text-decoration: none;
+  border: 0;
+  margin-top: auto; /* Push the link to the bottom of the content */
+  margin-left: 0; /* Reset margin */
+}
+  
+.articleLink:hover {
+  text-decoration: underline;
+}
+
+.backButton{
+  padding-bottom:5px;
+  display:block;
+  color: blue;
+  background-color: var(--article_container_background);
+  text-decoration: none;
+  border:0;
+  padding-left: 0px;
+}
+
+.backButton:hover{
+  text-decoration: underline;
+}
+
+.adSpace {
+  border: 1px solid #002144;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: var(--article_container_background); /* Light gray background */
+  /*max-width: 600px; /* Set a maximum width */
+  width:fit-content;
+  margin-left: auto; /* Center the container horizontally */
+  margin-right: auto; /* Center the container horizontally */
+  color:var(--app_heading_color);
+}
+

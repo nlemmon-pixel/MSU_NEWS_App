@@ -1,0 +1,22 @@
+.settings{
+    color:var(--color_not_int_container);
+    text-align: center;
+}
+.settings-menu-container{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    margin-top: 25px;;
+}
+
+.settings-object{
+    width:50%;
+    border:2px solid black;
+    border-radius: 5px;
+    font-size: large;
+    background-color: var(--app_text_color);
+    color:White;
+    padding-top: 5px;
+    padding-bottom:5px;
+    font-weight: bold;
+}

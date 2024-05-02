@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.78fd2ed6.css",
+    "main.js": "/static/js/main.8833ee7b.js",
+    "static/js/849.498804eb.chunk.js": "/static/js/849.498804eb.chunk.js",
+    "static/js/787.32ca1217.chunk.js": "/static/js/787.32ca1217.chunk.js",
+    "static/media/ShieldLogo.png": "/static/media/ShieldLogo.5a8aadb4737217c3c220.png",
+    "static/media/Logo_Final_white_print.png": "/static/media/Logo_Final_white_print.72eebc6e6dd59d91e59f.png",
+    "static/media/SocialIcon_Shield_Final.png": "/static/media/SocialIcon_Shield_Final.1a6627e44909be4addac.png",
+    "index.html": "/index.html",
+    "main.78fd2ed6.css.map": "/static/css/main.78fd2ed6.css.map",
+    "main.8833ee7b.js.map": "/static/js/main.8833ee7b.js.map",
+    "849.498804eb.chunk.js.map": "/static/js/849.498804eb.chunk.js.map",
+    "787.32ca1217.chunk.js.map": "/static/js/787.32ca1217.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.78fd2ed6.css",
+    "static/js/main.8833ee7b.js"
+  ]
+}

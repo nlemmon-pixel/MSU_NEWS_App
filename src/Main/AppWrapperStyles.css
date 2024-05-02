@@ -1,0 +1,13 @@
+#page-container{
+    background-color:var(--app_background_color);
+    color:var(--app_text_color);
+}
+
+#main-page-content{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.copyright{
+    color:var(--color_not_in_container)
+}
